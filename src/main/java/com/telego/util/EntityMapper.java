@@ -24,6 +24,37 @@ public class EntityMapper {
 
 		return dto;
 	}
+	
+	// TODO mapToAreaDTO;
+	// TODO mapToBoxesDTO;
+	// TODO mapToCabinsDTO;
+	// TODO mapToCitiesDTO;
+	// TODO mapToFeaturesDTO;
+	// TODO mapToPhonesDTO;
+	// TODO mapToLogisticsDTO;
+	// TODO mapToPhoneUserDTO;
+	
+	public Country mapToCountryEntity(CountryDTO dto) {
+		if (dto == null)
+			return null;
+		
+		Country entity = new Country();
+		entity.setCountryId(dto.getCountryId());
+		entity.setNameEn(dto.getNameEn());
+		entity.setNameAr(dto.getNameAr());
+		entity.setCode(dto.getCode());
+		
+		return entity;
+	}
+	
+	// TODO mapToAreaEntity;
+	// TODO mapToBoxesEntity;
+	// TODO mapToCabinsEntity;
+	// TODO mapToCitiesEntity;
+	// TODO mapToFeaturesEntity;
+	// TODO mapToPhonesEntity;
+	// TODO mapToLogisticsEntity;
+	// TODO mapToPhoneUserEntity;
 
 	public List<CountryDTO> mapToCountriesDTOs(List<Country> countries) {
 		if (countries == null)
@@ -38,5 +69,28 @@ public class EntityMapper {
 
 		return dtos;
 	}
+	
+	public List<Country> mapToCountriesEntities(List<CountryDTO> countries) {
+		if (countries == null)
+			return null;
+		
+		List<Country> entities = countries.stream().map(new Function<CountryDTO, Country>() {
+			@Override
+			public Country apply(CountryDTO dto) {
+				return mapToCountryEntity(dto);
+			}
+		}).collect(Collectors.toList());
+		
+		return entities;
+	}
+	
+	// TODO mapToAreaEntities;
+	// TODO mapToBoxesEntities;
+	// TODO mapToCabinsEntities;
+	// TODO mapToCitiesEntities;
+	// TODO mapToFeaturesEntities;
+	// TODO mapToPhonesEntities;
+	// TODO mapToLogisticsEntities;
+	// TODO mapToPhoneUserEntities;
 
 }

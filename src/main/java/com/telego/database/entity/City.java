@@ -36,11 +36,11 @@ public class City {
     @Column(name = "CODE")
     private String code;
     
-    @OneToMany(mappedBy = "cityByCityId")
-    private Collection<Area> areasByCityId;
-    
-    @OneToMany(mappedBy = "cityByCityId")
-    private Collection<Cabin> cabinsByCityId;
+//    @OneToMany(mappedBy = "cityByCityId")
+//    private Collection<Area> areasByCityId;
+//    
+//    @OneToMany(mappedBy = "cityByCityId")
+//    private Collection<Cabin> cabinsByCityId;
     
     @ManyToOne
     @JoinColumn(name = "COUNTRY_ID", referencedColumnName = "COUNTRY_ID", nullable = false)

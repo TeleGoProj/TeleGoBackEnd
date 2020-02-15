@@ -24,4 +24,45 @@ public class LookupService {
 		List<CountryDTO> countriesDTOs = mapper.mapToCountriesDTOs(countriesDatabase);
 		return countriesDTOs;
 	}
+
+	public List<CountryDTO> saveCountries(List<CountryDTO> countries) {
+		List<Country> countriesEntities = mapper.mapToCountriesEntities(countries);
+		countriesEntities = countryRepository.saveAll(countriesEntities);
+		countries = mapper.mapToCountriesDTOs(countriesEntities);
+		return countries;
+	}
+
+	public void deleteCountries(List<CountryDTO> countries) {
+		List<Country> countriesEntities = mapper.mapToCountriesEntities(countries);
+		countryRepository.deleteAll(countriesEntities);
+	}
+
+	// TODO getAllAreas;
+	// TODO saveAreas;
+	// TODO deleteAreas;
+	
+	
+	// TODO getAllBoxes;
+	// TODO saveBoxes;
+	// TODO deleteBoxes;
+	
+	
+	// TODO getAllCabin;
+	// TODO saveAllCabin;
+	// TODO deleteAllCabin;
+	
+	
+	// TODO getAllCity;
+	// TODO saveAllCity;
+	// TODO deleteCity;
+	
+	
+	// TODO getAllCountries;
+	// TODO saveCountries;
+	// TODO deleteCountries;
+	
+	
+	// TODO getAllFeatures;
+	// TODO saveFeatures;
+	// TODO deleteFeatures;
 }

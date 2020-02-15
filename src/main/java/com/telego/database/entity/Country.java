@@ -4,6 +4,7 @@ import java.util.Collection;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
@@ -16,7 +17,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+//@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Country {
 
 	@Id
@@ -33,7 +34,7 @@ public class Country {
 	@Column(name = "CODE")
 	private String code;
 
-	@OneToMany(mappedBy = "countryByCountryId")
+	@OneToMany(mappedBy = "countryByCountryId", fetch=FetchType.EAGER)
 	private Collection<City> citiesByCountryId;
 
 }
