@@ -98,7 +98,12 @@ public class EntityMapper {
 		if (areas == null)
 			return null;
 		
-		List<AreaDTO> dtos = null;
+		List<AreaDTO> dtos = areas.stream().map(new Function<Area, AreaDTO>() {
+			@Override
+			public AreaDTO apply(Area entity) {
+				return mapToAreaDTO(entity);
+			}
+		}).collect(Collectors.toList());
 		
 		return dtos;
 	}
