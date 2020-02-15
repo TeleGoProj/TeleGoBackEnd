@@ -33,9 +33,8 @@ public class EntityMapper {
 
 		AreaDTO dto = new AreaDTO();
 		dto.setAreaId(entity.getAreaId());
-		dto.setNameEn(entity.getNameEn());
-		dto.setNameAr(entity.getNameAr());
-		dto.setCode(entity.getCode());
+		dto.setAreaNameEn(entity.getAreaNameEn());
+		dto.setAreaNameAr(entity.getAreaNameAr());
 
 		return dto;
 	}
