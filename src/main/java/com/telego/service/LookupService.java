@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.telego.database.entity.Country;
 import com.telego.database.rep.CountryRepository;
+import com.telego.model.AreaDTO;
 import com.telego.model.CountryDTO;
 import com.telego.util.EntityMapper;
 
@@ -44,6 +45,10 @@ public class LookupService {
 		countryRepository.deleteAll(countriesEntities);
 	}
 
+	public List<AreaDTO> getAllAreas(){
+		List<AreaDTO> areaDTOs = null;
+		return areaDTOs;
+	}
 	// TODO getAllAreas;
 	// TODO saveAreas;
 	// TODO deleteAreas;
