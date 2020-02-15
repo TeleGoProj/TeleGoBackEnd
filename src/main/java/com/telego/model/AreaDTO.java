@@ -15,7 +15,7 @@ public class AreaDTO {
 	private Long areaId;
 	private String areaNameEn;
 	private String areaNameAr;
-	private CityDTO cityByCityId;
+	private CityDTO cityDTO;
 	private List<BoxDTO> boxesByAreaId;
 	private List<LogisticsDTO> logisticsByAreaId;
 }
