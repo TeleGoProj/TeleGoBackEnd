@@ -8,48 +8,110 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-
 @Entity
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Logistics {
-	
-    @Id
-    @Column(name = "LOGISTICS_ID")
-	@EqualsAndHashCode.Include
-    private Long logisticsId;
-	
-    @Column(name = "DELIVERY_TO_STREET")
-    private String deliveryToStreet;
-    
-    @Column(name = "REQUEST_DATE")
-    private Time requestDate;
-    
-    @Column(name = "STATUS")
-    private Long status;
-    
-    @Column(name = "DELIVERY_COMMENTS")
-    private String deliveryComments;
-    
-    @Column(name = "GOODS_DESCRIPTION")
-    private String goodsDescription;
-    
-    @ManyToOne
-    @JoinColumn(name = "REQUESTER_USER_ID", referencedColumnName = "USER_ID")
-    private PhoneUser phoneUserByRequesterUserId;
-    
-    @ManyToOne
-    @JoinColumn(name = "DELIVERY_TO_USER_ID", referencedColumnName = "USER_ID")
-    private PhoneUser phoneUserByDeliveryToUserId;
-    
-    @ManyToOne
-    @JoinColumn(name = "DELIVERY_TO_AREA_ID", referencedColumnName = "AREA_ID")
-    private Area areaByDeliveryToAreaId;
+
+	@Id
+	@Column(name = "LOGISTICS_ID")
+	private Long logisticsId;
+
+	@Column(name = "DELIVERY_TO_STREET")
+	private String deliveryToStreet;
+
+	@Column(name = "REQUEST_DATE")
+	private Time requestDate;
+
+	@Column(name = "STATUS")
+	private Long status;
+
+	@Column(name = "DELIVERY_COMMENTS")
+	private String deliveryComments;
+
+	@Column(name = "GOODS_DESCRIPTION")
+	private String goodsDescription;
+
+	@ManyToOne
+	@JoinColumn(name = "REQUESTER_USER_ID", referencedColumnName = "USER_ID")
+	private PhoneUser phoneUserByRequesterUserId;
+
+	@ManyToOne
+	@JoinColumn(name = "DELIVERY_TO_USER_ID", referencedColumnName = "USER_ID")
+	private PhoneUser phoneUserByDeliveryToUserId;
+
+	@ManyToOne
+	@JoinColumn(name = "DELIVERY_TO_AREA_ID", referencedColumnName = "AREA_ID")
+	private Area areaByDeliveryToAreaId;
+
+	public Long getLogisticsId() {
+		return logisticsId;
+	}
+
+	public void setLogisticsId(Long logisticsId) {
+		this.logisticsId = logisticsId;
+	}
+
+	public String getDeliveryToStreet() {
+		return deliveryToStreet;
+	}
+
+	public void setDeliveryToStreet(String deliveryToStreet) {
+		this.deliveryToStreet = deliveryToStreet;
+	}
+
+	public Time getRequestDate() {
+		return requestDate;
+	}
+
+	public void setRequestDate(Time requestDate) {
+		this.requestDate = requestDate;
+	}
+
+	public Long getStatus() {
+		return status;
+	}
+
+	public void setStatus(Long status) {
+		this.status = status;
+	}
+
+	public String getDeliveryComments() {
+		return deliveryComments;
+	}
+
+	public void setDeliveryComments(String deliveryComments) {
+		this.deliveryComments = deliveryComments;
+	}
+
+	public String getGoodsDescription() {
+		return goodsDescription;
+	}
+
+	public void setGoodsDescription(String goodsDescription) {
+		this.goodsDescription = goodsDescription;
+	}
+
+	public PhoneUser getPhoneUserByRequesterUserId() {
+		return phoneUserByRequesterUserId;
+	}
+
+	public void setPhoneUserByRequesterUserId(PhoneUser phoneUserByRequesterUserId) {
+		this.phoneUserByRequesterUserId = phoneUserByRequesterUserId;
+	}
+
+	public PhoneUser getPhoneUserByDeliveryToUserId() {
+		return phoneUserByDeliveryToUserId;
+	}
+
+	public void setPhoneUserByDeliveryToUserId(PhoneUser phoneUserByDeliveryToUserId) {
+		this.phoneUserByDeliveryToUserId = phoneUserByDeliveryToUserId;
+	}
+
+	public Area getAreaByDeliveryToAreaId() {
+		return areaByDeliveryToAreaId;
+	}
+
+	public void setAreaByDeliveryToAreaId(Area areaByDeliveryToAreaId) {
+		this.areaByDeliveryToAreaId = areaByDeliveryToAreaId;
+	}
 
 }

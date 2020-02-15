@@ -9,22 +9,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-
 @Entity
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@EqualsAndHashCode(onlyExplicitlyIncluded = true)
-
 public class Box {
 
 	@Id
 	@Column(name = "BOX_ID")
-	@EqualsAndHashCode.Include
 	private Long boxId;
 
 	@Column(name = "BOX_NAME")
@@ -49,5 +38,69 @@ public class Box {
 
 	@OneToMany(mappedBy = "boxByBoxId")
 	private Collection<LandlinePhone> landlinePhonesByBoxId;
+
+	public Long getBoxId() {
+		return boxId;
+	}
+
+	public void setBoxId(Long boxId) {
+		this.boxId = boxId;
+	}
+
+	public String getBoxName() {
+		return boxName;
+	}
+
+	public void setBoxName(String boxName) {
+		this.boxName = boxName;
+	}
+
+	public Float getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(Float longitude) {
+		this.longitude = longitude;
+	}
+
+	public Float getLatitude() {
+		return latitude;
+	}
+
+	public void setLatitude(Float latitude) {
+		this.latitude = latitude;
+	}
+
+	public String getStreetName() {
+		return streetName;
+	}
+
+	public void setStreetName(String streetName) {
+		this.streetName = streetName;
+	}
+
+	public Area getAreaByAreaId() {
+		return areaByAreaId;
+	}
+
+	public void setAreaByAreaId(Area areaByAreaId) {
+		this.areaByAreaId = areaByAreaId;
+	}
+
+	public Cabin getCabinByCabinId() {
+		return cabinByCabinId;
+	}
+
+	public void setCabinByCabinId(Cabin cabinByCabinId) {
+		this.cabinByCabinId = cabinByCabinId;
+	}
+
+	public Collection<LandlinePhone> getLandlinePhonesByBoxId() {
+		return landlinePhonesByBoxId;
+	}
+
+	public void setLandlinePhonesByBoxId(Collection<LandlinePhone> landlinePhonesByBoxId) {
+		this.landlinePhonesByBoxId = landlinePhonesByBoxId;
+	}
 
 }

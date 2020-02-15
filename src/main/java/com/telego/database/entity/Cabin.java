@@ -9,31 +9,53 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-
 @Entity
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Cabin {
-	
-    @Id
-    @Column(name = "CABIN_ID")
-	@EqualsAndHashCode.Include
-    private Long cabinId;
-    
-    @Column(name = "CABIN_NAME")
-    private String cabinName;
-    
-    @OneToMany(mappedBy = "cabinByCabinId")
-    private Collection<Box> boxesByCabinId;
-    
-    @ManyToOne
-    @JoinColumn(name = "CITY_ID", referencedColumnName = "CITY_ID")
-    private City cityByCityId;
+
+	@Id
+	@Column(name = "CABIN_ID")
+	private Long cabinId;
+
+	@Column(name = "CABIN_NAME")
+	private String cabinName;
+
+	@OneToMany(mappedBy = "cabinByCabinId")
+	private Collection<Box> boxesByCabinId;
+
+	@ManyToOne
+	@JoinColumn(name = "CITY_ID", referencedColumnName = "CITY_ID")
+	private City cityByCityId;
+
+	public Long getCabinId() {
+		return cabinId;
+	}
+
+	public void setCabinId(Long cabinId) {
+		this.cabinId = cabinId;
+	}
+
+	public String getCabinName() {
+		return cabinName;
+	}
+
+	public void setCabinName(String cabinName) {
+		this.cabinName = cabinName;
+	}
+
+	public Collection<Box> getBoxesByCabinId() {
+		return boxesByCabinId;
+	}
+
+	public void setBoxesByCabinId(Collection<Box> boxesByCabinId) {
+		this.boxesByCabinId = boxesByCabinId;
+	}
+
+	public City getCityByCityId() {
+		return cityByCityId;
+	}
+
+	public void setCityByCityId(City cityByCityId) {
+		this.cityByCityId = cityByCityId;
+	}
 
 }

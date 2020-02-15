@@ -59,6 +59,10 @@ public class AdminService {
 		// TODO features;
 		// TODO phoneUsers;
 		
+		lookupService.saveCountries(addCountries);
+		lookupService.saveCountries(updatedCountries);
+		lookupService.deleteCountries(deletedCountries);
+		
 		response.setStatus(STATUS.SUCCESS);
 		return response;
 	}

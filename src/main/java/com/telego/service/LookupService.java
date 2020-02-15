@@ -26,13 +26,20 @@ public class LookupService {
 	}
 
 	public List<CountryDTO> saveCountries(List<CountryDTO> countries) {
+		if(countries == null)
+			return null;
+		
 		List<Country> countriesEntities = mapper.mapToCountriesEntities(countries);
 		countriesEntities = countryRepository.saveAll(countriesEntities);
+		countryRepository.flush();
 		countries = mapper.mapToCountriesDTOs(countriesEntities);
 		return countries;
 	}
 
 	public void deleteCountries(List<CountryDTO> countries) {
+		if(countries == null)
+			return;
+		
 		List<Country> countriesEntities = mapper.mapToCountriesEntities(countries);
 		countryRepository.deleteAll(countriesEntities);
 	}

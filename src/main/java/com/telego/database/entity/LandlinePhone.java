@@ -7,22 +7,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-
 @Entity
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Table(name = "LANDLINE_PHONE", schema = "PHONE", catalog = "")
 public class LandlinePhone {
 
 	@Id
 	@Column(name = "LANDLINE_PHONE_ID")
-	@EqualsAndHashCode.Include
 	private Long landlinePhoneId;
 
 	@Column(name = "PHONE_NUMBER")
@@ -35,5 +25,37 @@ public class LandlinePhone {
 	@ManyToOne
 	@JoinColumn(name = "BOX_ID", referencedColumnName = "BOX_ID")
 	private Box boxByBoxId;
+
+	public Long getLandlinePhoneId() {
+		return landlinePhoneId;
+	}
+
+	public void setLandlinePhoneId(Long landlinePhoneId) {
+		this.landlinePhoneId = landlinePhoneId;
+	}
+
+	public Long getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(Long phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	public PhoneUser getPhoneUserByUserId() {
+		return phoneUserByUserId;
+	}
+
+	public void setPhoneUserByUserId(PhoneUser phoneUserByUserId) {
+		this.phoneUserByUserId = phoneUserByUserId;
+	}
+
+	public Box getBoxByBoxId() {
+		return boxByBoxId;
+	}
+
+	public void setBoxByBoxId(Box boxByBoxId) {
+		this.boxByBoxId = boxByBoxId;
+	}
 
 }

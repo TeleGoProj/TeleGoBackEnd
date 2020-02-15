@@ -4,25 +4,15 @@ import java.util.Collection;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-
 @Entity
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-//@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Country {
 
 	@Id
 	@Column(name = "COUNTRY_ID")
-	@EqualsAndHashCode.Include
+//	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private Long countryId;
 
 	@Column(name = "NAME_EN")
@@ -34,7 +24,47 @@ public class Country {
 	@Column(name = "CODE")
 	private String code;
 
-	@OneToMany(mappedBy = "countryByCountryId", fetch=FetchType.EAGER)
+	@OneToMany(mappedBy = "countryByCountryId")
 	private Collection<City> citiesByCountryId;
+
+	public Long getCountryId() {
+		return countryId;
+	}
+
+	public void setCountryId(Long countryId) {
+		this.countryId = countryId;
+	}
+
+	public String getNameEn() {
+		return nameEn;
+	}
+
+	public void setNameEn(String nameEn) {
+		this.nameEn = nameEn;
+	}
+
+	public String getNameAr() {
+		return nameAr;
+	}
+
+	public void setNameAr(String nameAr) {
+		this.nameAr = nameAr;
+	}
+
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+	public Collection<City> getCitiesByCountryId() {
+		return citiesByCountryId;
+	}
+
+	public void setCitiesByCountryId(Collection<City> citiesByCountryId) {
+		this.citiesByCountryId = citiesByCountryId;
+	}
 
 }
