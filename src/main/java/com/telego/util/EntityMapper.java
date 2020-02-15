@@ -61,6 +61,18 @@ public class EntityMapper {
 		return entity;
 	}
 	
+	public Area mapToAreaEntity(AreaDTO dto) {
+		if (dto == null)
+			return null;
+		
+		Area entity = new Area();
+		entity.setAreaId(dto.getAreaId());
+		entity.setAreaNameAr(dto.getAreaNameAr());
+		entity.setAreaNameEn(dto.getAreaNameEn());
+		
+		return entity;
+	}
+	
 	// TODO mapToAreaEntity;
 	// TODO mapToBoxesEntity;
 	// TODO mapToCabinsEntity;
