@@ -1,100 +1,49 @@
 package com.telego.database.entity;
 
-import javax.persistence.*;
 import java.util.Collection;
-import java.util.Objects;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 @Entity
-public class City {
-    private Long cityId;
-    private String nameEn;
-    private String nameAr;
-    private String code;
-    private Collection<Area> areasByCityId;
-    private Collection<Cabin> cabinsByCityId;
-    private Country countryByCountryId;
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 
+public class City {
+	
     @Id
     @Column(name = "CITY_ID")
-    public Long getCityId() {
-        return cityId;
-    }
-
-    public void setCityId(Long cityId) {
-        this.cityId = cityId;
-    }
-
-    @Basic
+	@EqualsAndHashCode.Include
+    private Long cityId;
+    
     @Column(name = "NAME_EN")
-    public String getNameEn() {
-        return nameEn;
-    }
-
-    public void setNameEn(String nameEn) {
-        this.nameEn = nameEn;
-    }
-
-    @Basic
+    private String nameEn;
+    
     @Column(name = "NAME_AR")
-    public String getNameAr() {
-        return nameAr;
-    }
-
-    public void setNameAr(String nameAr) {
-        this.nameAr = nameAr;
-    }
-
-    @Basic
+    private String nameAr;
+    
     @Column(name = "CODE")
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        City city = (City) o;
-        return Objects.equals(cityId, city.cityId) &&
-                Objects.equals(nameEn, city.nameEn) &&
-                Objects.equals(nameAr, city.nameAr) &&
-                Objects.equals(code, city.code);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(cityId, nameEn, nameAr, code);
-    }
-
+    private String code;
+    
     @OneToMany(mappedBy = "cityByCityId")
-    public Collection<Area> getAreasByCityId() {
-        return areasByCityId;
-    }
-
-    public void setAreasByCityId(Collection<Area> areasByCityId) {
-        this.areasByCityId = areasByCityId;
-    }
-
+    private Collection<Area> areasByCityId;
+    
     @OneToMany(mappedBy = "cityByCityId")
-    public Collection<Cabin> getCabinsByCityId() {
-        return cabinsByCityId;
-    }
-
-    public void setCabinsByCityId(Collection<Cabin> cabinsByCityId) {
-        this.cabinsByCityId = cabinsByCityId;
-    }
-
+    private Collection<Cabin> cabinsByCityId;
+    
     @ManyToOne
     @JoinColumn(name = "COUNTRY_ID", referencedColumnName = "COUNTRY_ID", nullable = false)
-    public Country getCountryByCountryId() {
-        return countryByCountryId;
-    }
+    private Country countryByCountryId;
 
-    public void setCountryByCountryId(Country countryByCountryId) {
-        this.countryByCountryId = countryByCountryId;
-    }
 }

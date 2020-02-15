@@ -1,113 +1,53 @@
 package com.telego.database.entity;
 
-import javax.persistence.*;
 import java.util.Collection;
-import java.util.Objects;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 @Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+
 public class Box {
-    private Long boxId;
-    private String boxName;
-    private Float longitude;
-    private Float latitude;
-    private String streetName;
-    private Area areaByAreaId;
-    private Cabin cabinByCabinId;
-    private Collection<LandlinePhone> landlinePhonesByBoxId;
 
-    @Id
-    @Column(name = "BOX_ID")
-    public Long getBoxId() {
-        return boxId;
-    }
+	@Id
+	@Column(name = "BOX_ID")
+	@EqualsAndHashCode.Include
+	private Long boxId;
 
-    public void setBoxId(Long boxId) {
-        this.boxId = boxId;
-    }
+	@Column(name = "BOX_NAME")
+	private String boxName;
 
-    @Basic
-    @Column(name = "BOX_NAME")
-    public String getBoxName() {
-        return boxName;
-    }
+	@Column(name = "LONGITUDE")
+	private Float longitude;
 
-    public void setBoxName(String boxName) {
-        this.boxName = boxName;
-    }
+	@Column(name = "LATITUDE")
+	private Float latitude;
 
-    @Basic
-    @Column(name = "LONGITUDE")
-    public Float getLongitude() {
-        return longitude;
-    }
+	@Column(name = "STREET_NAME")
+	private String streetName;
 
-    public void setLongitude(Float longitude) {
-        this.longitude = longitude;
-    }
+	@ManyToOne
+	@JoinColumn(name = "AREA_ID", referencedColumnName = "AREA_ID")
+	private Area areaByAreaId;
 
-    @Basic
-    @Column(name = "LATITUDE")
-    public Float getLatitude() {
-        return latitude;
-    }
+	@ManyToOne
+	@JoinColumn(name = "CABIN_ID", referencedColumnName = "CABIN_ID")
+	private Cabin cabinByCabinId;
 
-    public void setLatitude(Float latitude) {
-        this.latitude = latitude;
-    }
+	@OneToMany(mappedBy = "boxByBoxId")
+	private Collection<LandlinePhone> landlinePhonesByBoxId;
 
-    @Basic
-    @Column(name = "STREET_NAME")
-    public String getStreetName() {
-        return streetName;
-    }
-
-    public void setStreetName(String streetName) {
-        this.streetName = streetName;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Box box = (Box) o;
-        return Objects.equals(boxId, box.boxId) &&
-                Objects.equals(boxName, box.boxName) &&
-                Objects.equals(longitude, box.longitude) &&
-                Objects.equals(latitude, box.latitude) &&
-                Objects.equals(streetName, box.streetName);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(boxId, boxName, longitude, latitude, streetName);
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "AREA_ID", referencedColumnName = "AREA_ID")
-    public Area getAreaByAreaId() {
-        return areaByAreaId;
-    }
-
-    public void setAreaByAreaId(Area areaByAreaId) {
-        this.areaByAreaId = areaByAreaId;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "CABIN_ID", referencedColumnName = "CABIN_ID")
-    public Cabin getCabinByCabinId() {
-        return cabinByCabinId;
-    }
-
-    public void setCabinByCabinId(Cabin cabinByCabinId) {
-        this.cabinByCabinId = cabinByCabinId;
-    }
-
-    @OneToMany(mappedBy = "boxByBoxId")
-    public Collection<LandlinePhone> getLandlinePhonesByBoxId() {
-        return landlinePhonesByBoxId;
-    }
-
-    public void setLandlinePhonesByBoxId(Collection<LandlinePhone> landlinePhonesByBoxId) {
-        this.landlinePhonesByBoxId = landlinePhonesByBoxId;
-    }
 }
