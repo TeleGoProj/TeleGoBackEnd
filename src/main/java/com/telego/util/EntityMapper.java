@@ -39,7 +39,6 @@ public class EntityMapper {
 		return dto;
 	}
 	
-	// TODO mapToAreaDTO;
 	// TODO mapToBoxesDTO;
 	// TODO mapToCabinsDTO;
 	// TODO mapToCitiesDTO;
@@ -73,7 +72,6 @@ public class EntityMapper {
 		return entity;
 	}
 	
-	// TODO mapToAreaEntity;
 	// TODO mapToBoxesEntity;
 	// TODO mapToCabinsEntity;
 	// TODO mapToCitiesEntity;
@@ -93,6 +91,15 @@ public class EntityMapper {
 			}
 		}).collect(Collectors.toList());
 
+		return dtos;
+	}
+	
+	public List<AreaDTO> mapToAreasDTOs(List<Area> areas){
+		if (areas == null)
+			return null;
+		
+		List<AreaDTO> dtos = null;
+		
 		return dtos;
 	}
 	
