@@ -4,16 +4,21 @@ import java.util.Collection;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 
 @Entity
 public class Cabin {
 
 	@Id
 	@Column(name = "CABIN_ID")
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "cabinGenerator")
+	@SequenceGenerator(name="cabinGenerator", sequenceName="cabin_sequence" , initialValue=1000, allocationSize=1)
 	private Long cabinId;
 
 	@Column(name = "CABIN_NAME")

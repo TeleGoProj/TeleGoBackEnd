@@ -5,8 +5,11 @@ import java.util.Collection;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
@@ -15,6 +18,8 @@ public class PhoneUser {
 
 	@Id
 	@Column(name = "USER_ID")
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "phoneUserGenerator")
+	@SequenceGenerator(name="phoneUserGenerator", sequenceName="phone_user_sequence" , initialValue=1000, allocationSize=1)
 	private Long userId;
 
 	@Column(name = "LOGIN_NAME")

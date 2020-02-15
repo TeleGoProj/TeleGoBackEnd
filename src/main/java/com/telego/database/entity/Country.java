@@ -4,15 +4,19 @@ import java.util.Collection;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 
 @Entity
 public class Country {
 
 	@Id
 	@Column(name = "COUNTRY_ID")
-//	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "countryGenerator")
+	@SequenceGenerator(name="countryGenerator", sequenceName="country_sequence" , initialValue=1000, allocationSize=1)
 	private Long countryId;
 
 	@Column(name = "NAME_EN")

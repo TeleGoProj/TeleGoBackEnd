@@ -4,15 +4,20 @@ import java.sql.Time;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 
 @Entity
 public class Logistics {
 
 	@Id
 	@Column(name = "LOGISTICS_ID")
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "logisticteGenerator")
+	@SequenceGenerator(name="logisticteGenerator", sequenceName="logistict_sequence" , initialValue=1000, allocationSize=1)
 	private Long logisticsId;
 
 	@Column(name = "DELIVERY_TO_STREET")
