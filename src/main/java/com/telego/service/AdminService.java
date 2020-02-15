@@ -34,6 +34,7 @@ public class AdminService {
 		// TODO phoneUsers;
 		
 		response.setLookupsCountries(countries);
+		response.setLookupsAreas(areas);
 		
 		// TODO set every one into the response object
 		
