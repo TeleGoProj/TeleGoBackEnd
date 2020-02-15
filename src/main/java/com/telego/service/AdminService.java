@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.telego.model.AreaDTO;
 import com.telego.model.CountryDTO;
 import com.telego.model.request.AdminLookupsRequest;
 import com.telego.model.response.AdminLookupsResponse;
@@ -20,6 +21,7 @@ public class AdminService {
 		AdminLookupsResponse response = new AdminLookupsResponse();
 		
 		List<CountryDTO> countries  = lookupService.getAllCountries();
+		List<AreaDTO> areas = lookupService.getAllAreas();
 		// TODO areas;
 		// TODO boxes;
 		// TODO cabins;
