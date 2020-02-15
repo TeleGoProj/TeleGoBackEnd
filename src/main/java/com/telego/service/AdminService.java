@@ -5,6 +5,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 @Service
-public class BasicOperationsService {
+public class AdminService {
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 }
