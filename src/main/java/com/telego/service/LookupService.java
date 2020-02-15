@@ -52,7 +52,7 @@ public class LookupService {
 
 	public List<AreaDTO> getAllAreas(){
 		List<Area> areasDatabase = areaRepository.findAll();
-		List<AreaDTO> areasDTOs = null;
+		List<AreaDTO> areasDTOs = mapper.mapToAreasDTOs(areasDatabase);
 		return areasDTOs;
 	}
 	// TODO getAllAreas;
