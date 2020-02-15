@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.telego.database.entity.Area;
 import com.telego.database.entity.Country;
+import com.telego.database.rep.AreaRepository;
 import com.telego.database.rep.CountryRepository;
 import com.telego.model.AreaDTO;
 import com.telego.model.CountryDTO;
@@ -16,6 +18,9 @@ public class LookupService {
 
 	@Autowired
 	private CountryRepository countryRepository;
+	
+	@Autowired
+	private AreaRepository areaRepository;
 
 	@Autowired
 	private EntityMapper mapper;
@@ -46,8 +51,9 @@ public class LookupService {
 	}
 
 	public List<AreaDTO> getAllAreas(){
-		List<AreaDTO> areaDTOs = null;
-		return areaDTOs;
+		List<Area> areasDatabase = areaRepository.findAll();
+		List<AreaDTO> areasDTOs = null;
+		return areasDTOs;
 	}
 	// TODO getAllAreas;
 	// TODO saveAreas;
