@@ -7,7 +7,9 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 
 import com.telego.database.entity.Country;
+import com.telego.database.entity.Area;
 import com.telego.model.CountryDTO;
+import com.telego.model.AreaDTO;
 
 @Service
 public class EntityMapper {
@@ -18,6 +20,19 @@ public class EntityMapper {
 
 		CountryDTO dto = new CountryDTO();
 		dto.setCountryId(entity.getCountryId());
+		dto.setNameEn(entity.getNameEn());
+		dto.setNameAr(entity.getNameAr());
+		dto.setCode(entity.getCode());
+
+		return dto;
+	}
+	
+	public AreaDTO mapToAreaDTO(Area entity) {
+		if (entity == null)
+			return null;
+
+		AreaDTO dto = new AreaDTO();
+		dto.setAreaId(entity.getAreaId());
 		dto.setNameEn(entity.getNameEn());
 		dto.setNameAr(entity.getNameAr());
 		dto.setCode(entity.getCode());
