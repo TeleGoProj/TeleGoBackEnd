@@ -46,9 +46,9 @@ public class AdminLookupsRequest extends Request{
 	private List<FeatureDTO> updatedFeatures;
 	private List<FeatureDTO> deletedFeatures;
 	
-	private List<LandlinePhoneDTO> addedlandlinePhone;
-	private List<LandlinePhoneDTO> updatedlandPhone;
-	private List<LandlinePhoneDTO> deletedlandlinePhones;
+	private List<LandlinePhoneDTO> addedLandlinePhone;
+	private List<LandlinePhoneDTO> updatedLandPhone;
+	private List<LandlinePhoneDTO> deletedLandlinePhones;
 	
 	private List<LogisticsDTO> addedLogistics;
 	private List<LogisticsDTO> updatedLogistics;
