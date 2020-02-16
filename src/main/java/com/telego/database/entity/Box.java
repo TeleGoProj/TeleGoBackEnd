@@ -1,6 +1,7 @@
 package com.telego.database.entity;
 
 import java.util.Collection;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
+
+import com.telego.model.AreaDTO;
 
 @Entity
 public class Box {
@@ -36,11 +39,15 @@ public class Box {
 	@ManyToOne
 	@JoinColumn(name = "AREA_ID", referencedColumnName = "AREA_ID")
 	private Area areaByAreaId;
+	
+	
 
 	@ManyToOne
 	@JoinColumn(name = "CABIN_ID", referencedColumnName = "CABIN_ID")
 	private Cabin cabinByCabinId;
 
+	
+	
 	@OneToMany(mappedBy = "boxByBoxId")
 	private Collection<LandlinePhone> landlinePhonesByBoxId;
 
