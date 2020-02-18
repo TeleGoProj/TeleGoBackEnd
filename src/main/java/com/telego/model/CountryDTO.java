@@ -1,5 +1,7 @@
 package com.telego.model;
 
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -17,5 +19,7 @@ public class CountryDTO {
 	private String nameEn;
 	private String nameAr;
 	private String code;
+	
+	private List<CityDTO> cities;
 
 }

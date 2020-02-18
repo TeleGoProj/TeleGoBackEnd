@@ -37,6 +37,10 @@ public class EntityMapper {
 		dto.setNameEn(entity.getNameEn());
 		dto.setNameAr(entity.getNameAr());
 		dto.setCode(entity.getCode());
+		
+		List<City> cities = entity.getCitiesByCountryId(); 
+		List<CityDTO> citiesDTOs = mapToCitiesDTOs(cities);
+		dto.setCities(citiesDTOs);
 
 		return dto;
 	}
