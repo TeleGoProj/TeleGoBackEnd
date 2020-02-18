@@ -1,13 +1,7 @@
 package com.telego.model;
 
 import java.sql.Time;
-import java.util.Collection;
 import java.util.List;
-
-
-import com.telego.database.entity.LandlinePhone;
-import com.telego.database.entity.Logistics;
-
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -35,7 +29,7 @@ public class PhoneUserDTO {
 	private Long userStatus;
 	private Long userType;
 	
-	private List<LandlinePhoneDTO> landlinePhonesByUserId;
-	private List<LogisticsDTO> logisticsByUserId;
-	private List<LogisticsDTO> logisticsByUserId_0;
+	private List<LandlinePhoneDTO> landLinePhones;
+	private List<LogisticsDTO> requestedlogistics;
+	private List<LogisticsDTO> deliveredLogistics;
 }

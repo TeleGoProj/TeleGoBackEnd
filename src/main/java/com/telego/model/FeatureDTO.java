@@ -15,9 +15,5 @@ public class FeatureDTO {
 	private Long featureId;
 	private String name;
 	private String value;
-	private String type;
-	private String category;
-	private Long parentId;
-	
-	
+	private String type;	
 }

@@ -6,33 +6,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.telego.database.entity.Area;
-import com.telego.database.entity.Country;
 import com.telego.database.entity.Box;
 import com.telego.database.entity.Cabin;
 import com.telego.database.entity.City;
+import com.telego.database.entity.Country;
 import com.telego.database.entity.Feature;
-import com.telego.database.entity.LandlinePhone;
-import com.telego.database.entity.Logistics;
-import com.telego.database.entity.PhoneUser;
 import com.telego.database.rep.AreaRepository;
-import com.telego.database.rep.CountryRepository;
 import com.telego.database.rep.BoxRepository;
 import com.telego.database.rep.CabinRepository;
 import com.telego.database.rep.CityRepository;
+import com.telego.database.rep.CountryRepository;
 import com.telego.database.rep.FeatureRepository;
-import com.telego.database.rep.LandlinePhoneRepository;
-import com.telego.database.rep.LogisticsRepository;
-import com.telego.database.rep.PhoneUserRepository;
 import com.telego.model.AreaDTO;
-import com.telego.model.CountryDTO;
 import com.telego.model.BoxDTO;
 import com.telego.model.CabinDTO;
 import com.telego.model.CityDTO;
+import com.telego.model.CountryDTO;
 import com.telego.model.FeatureDTO;
-import com.telego.model.LandlinePhoneDTO;
-import com.telego.model.LogisticsDTO;
-import com.telego.model.PhoneUserDTO;
-
 import com.telego.util.EntityMapper;
 
 @Service
@@ -45,33 +35,20 @@ public class LookupService {
 	private AreaRepository areaRepository;
 	
 	@Autowired
-	private AreaRepository boxRepository;
+	private BoxRepository boxRepository;
 	
 	@Autowired
-	private AreaRepository cabinRepository;
+	private CabinRepository cabinRepository;
 	
 	@Autowired
-	private AreaRepository cityRepository;
+	private CityRepository cityRepository;
 	
-
 	@Autowired
-	private AreaRepository featureRepository;
+	private FeatureRepository featureRepository;
 
-	@Autowired
-	private AreaRepository landlinePhoneRepository;
-
-	@Autowired
-	private AreaRepository logisticsRepository;
-
-	@Autowired
-	private AreaRepository phoneUserRepository;
-	
 	@Autowired
 	private EntityMapper mapper;
-
-	
-///////////////////////////////////////////////////////////////////////////////	
-	
+		
 	public List<CountryDTO> getAllCountries() {
 		List<Country> countriesDatabase = countryRepository.findAll();
 		List<CountryDTO> countriesDTOs = mapper.mapToCountriesDTOs(countriesDatabase);
@@ -131,15 +108,14 @@ public List<BoxDTO> getAllBoxes(){
 	return boxesDTOs;
 }
 
-
-public List<BoxDTO> saveboxes(List<BoxDTO> boxes) {
+public List<BoxDTO> saveBoxes(List<BoxDTO> boxes) {
 	if(boxes == null)
 		return null;
 	
 	List<Box> boxesEntities = mapper.mapToBoxesEntities(boxes);
-	boxesEntities = BoxRepository.saveAll(boxesEntities);
+	boxesEntities = boxRepository.saveAll(boxesEntities);
 	areaRepository.flush();
-	boxes = mapper.mapToboxesDTOs(boxesEntities);
+	boxes = mapper.mapToBoxesDTOs(boxesEntities);
 	return boxes;
 }
 
@@ -157,7 +133,6 @@ public List<CabinDTO> getAllCabins(){
 	List<CabinDTO> CabinsDTOs = mapper.mapToCabinsDTOs(CabinsDatabase);
 	return CabinsDTOs;
 }
-
 
 public List<CabinDTO> savecabins(List<CabinDTO> cabins) {
 	if(cabins == null)
@@ -200,10 +175,9 @@ public void deleteCities(List<CityDTO> cities) {
 	if(cities == null)
 		return;
 	
-	List<City> citiesEntities = mapper.mapTocitiesEntities(cities);
+	List<City> citiesEntities = mapper.mapToCitiesEntities(cities);
 	cityRepository.deleteAll(citiesEntities);
 }
-
 ///////////////////////////////////////////////////////////////////////////////	
 
 public List<FeatureDTO> getAllFeatures() {

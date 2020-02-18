@@ -2,15 +2,16 @@ package com.telego.model.request;
 
 import java.util.List;
 
-import com.telego.model.CountryDTO;
 import com.telego.model.AreaDTO;
 import com.telego.model.BoxDTO;
 import com.telego.model.CabinDTO;
 import com.telego.model.CityDTO;
+import com.telego.model.CountryDTO;
 import com.telego.model.FeatureDTO;
 import com.telego.model.LandlinePhoneDTO;
 import com.telego.model.LogisticsDTO;
 import com.telego.model.PhoneUserDTO;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -58,54 +59,4 @@ public class AdminLookupsRequest extends Request{
 	private List<PhoneUserDTO> updatedPhoneUsers;
 	private List<PhoneUserDTO> deletedPhoneUsers;
 	
-	
-	// TODO addedAreas - Done;
-	// TODO updatedAreas - Done;
-	// TODO deletedAreas - Done;
-	
-	
-	// TODO addedBoxes - Done;
-	// TODO updatedBoxes - Done;
-	// TODO deletedBoxes - Done;
-	
-	
-	// TODO addedCabin - Done;
-	// TODO updatedCabin - Done;
-	// TODO deletedCabin - Done;
-
-	
-	
-	// TODO addedCities - Done;
-	// TODO updatedCities - Done;
-	// TODO deletedCities - Done;
-	
-	
-	// TODO addedCountries - already Done;
-	// TODO updatedCountries - already Done;
-	// TODO deletedCountries - already Done;
-	
-	
-	// TODO addedFeatures - Done;
-	// TODO updatedFeatures - Done;
-	// TODO deletedFeatures - Done;
-	
-	
-	// TODO addedLinePhones - Done;
-	// TODO updatedPhones - Done;
-	// TODO deletedLinePhones - Done;
-	
-
-	// TODO addedLogistic - Done;
-	// TODO updatedLogistics - Done;
-	// TODO deletedLogistics - Done;
-	
-	
-	// TODO addedFeatures - Duplicated;
-	// TODO updatedFeatures - Duplicated;
-	// TODO deletedFeatures - Duplicated;
-	
-	
-	// TODO addedPhoneUsers - Done;
-	// TODO updatedPhoneUsers - Done;
-	// TODO deletedPhoneUsers - Done;
 }

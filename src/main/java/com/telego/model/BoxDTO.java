@@ -1,11 +1,6 @@
 package com.telego.model;
 
 import java.util.List;
-import java.util.Collection;
-
-import com.telego.database.entity.LandlinePhone;
-import com.telego.database.entity.Cabin;
-import com.telego.database.entity.Area;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,8 +18,8 @@ public class BoxDTO {
 	private Float latitude;
 	private String streetName;
 	
-	private List<AreaDTO>areaByAreaId;
-	private List<CabinDTO>cabinByCabinId;
-	private List<LandlinePhoneDTO>landlinePhonesByBoxId;
+	private List<AreaDTO>areas;
+	private List<CabinDTO>cabins;
+	private List<LandlinePhoneDTO>landlinePhones;
 }
 

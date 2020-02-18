@@ -30,12 +30,6 @@ public class Feature {
 	@Column(name = "TYPE")
 	private String type;
 
-	@Column(name = "CATEGORY")
-	private String category;
-
-	@Column(name = "PARENT_ID")
-	private Long parentId;
-
 	@OneToOne
 	@JoinColumn(name = "FEATURE_ID", referencedColumnName = "FEATURE_ID", nullable = false)
 	private Feature featureByFeatureId;
@@ -76,22 +70,6 @@ public class Feature {
 
 	public void setType(String type) {
 		this.type = type;
-	}
-
-	public String getCategory() {
-		return category;
-	}
-
-	public void setCategory(String category) {
-		this.category = category;
-	}
-
-	public Long getParentId() {
-		return parentId;
-	}
-
-	public void setParentId(Long parentId) {
-		this.parentId = parentId;
 	}
 
 	public Feature getFeatureByFeatureId() {

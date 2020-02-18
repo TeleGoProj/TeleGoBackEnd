@@ -6,10 +6,24 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
-import com.telego.database.entity.Country;
 import com.telego.database.entity.Area;
-import com.telego.model.CountryDTO;
+import com.telego.database.entity.Box;
+import com.telego.database.entity.Cabin;
+import com.telego.database.entity.City;
+import com.telego.database.entity.Country;
+import com.telego.database.entity.Feature;
+import com.telego.database.entity.LandlinePhone;
+import com.telego.database.entity.Logistics;
+import com.telego.database.entity.PhoneUser;
 import com.telego.model.AreaDTO;
+import com.telego.model.BoxDTO;
+import com.telego.model.CabinDTO;
+import com.telego.model.CityDTO;
+import com.telego.model.CountryDTO;
+import com.telego.model.FeatureDTO;
+import com.telego.model.LandlinePhoneDTO;
+import com.telego.model.LogisticsDTO;
+import com.telego.model.PhoneUserDTO;
 
 @Service
 public class EntityMapper {
@@ -39,14 +53,106 @@ public class EntityMapper {
 		return dto;
 	}
 	
-	// TODO mapToBoxesDTO;
-	// TODO mapToCabinsDTO;
-	// TODO mapToCitiesDTO;
-	// TODO mapToFeaturesDTO;
-	// TODO mapToPhonesDTO;
-	// TODO mapToLogisticsDTO;
-	// TODO mapToPhoneUserDTO;
+	public BoxDTO mapToBoxDTO(Box entity) {
+		if (entity == null)
+			return null;
+
+		BoxDTO dto = new BoxDTO();
+		dto.setBoxId(entity.getBoxId());
+		dto.setBoxName(entity.getBoxName());
+		dto.setLongitude(entity.getLongitude());
+		dto.setLatitude(entity.getLatitude());
+		dto.setStreetName(entity.getStreetName());
+
+		return dto;
+	}
 	
+	public CabinDTO mapToCabinDTO(Cabin entity) {
+		if (entity == null)
+			return null;
+
+		CabinDTO dto = new CabinDTO();
+		dto.setCabinId(entity.getCabinId());
+		dto.setCabinName(entity.getCabinName());
+		return dto;
+	}
+	
+	public CityDTO mapToCityDTO(City entity) {
+		if (entity == null)
+			return null;
+
+		CityDTO dto = new CityDTO();
+		dto.setCityId(entity.getCityId());
+		dto.setNameEn(entity.getNameEn());
+		dto.setNameAr(entity.getNameAr());
+
+		return dto;
+	}
+	
+	public FeatureDTO mapToFeatureDTO(Feature entity) {
+		if (entity == null)
+			return null;
+
+		FeatureDTO dto = new FeatureDTO();
+		dto.setFeatureId(entity.getFeatureId());
+		dto.setName(entity.getName());
+		dto.setValue(entity.getValue());
+		dto.setType(entity.getType());
+		
+		return dto;
+	}
+	
+	public LandlinePhoneDTO mapToLandlinePhoneDTO(LandlinePhone entity) {
+		if (entity == null)
+			return null;
+
+		LandlinePhoneDTO dto = new LandlinePhoneDTO();
+		dto.setLandlinePhoneId(entity.getLandlinePhoneId());
+		dto.setPhoneNumber(entity.getPhoneNumber());
+
+		return dto;
+	}
+	
+	public LogisticsDTO mapToLogisticsDTO(Logistics entity) {
+		if (entity == null)
+			return null;
+
+		LogisticsDTO dto = new LogisticsDTO();
+		dto.setLogisticsId(entity.getLogisticsId());
+		dto.setDeliveryToStreet(entity.getDeliveryToStreet());
+		dto.setRequestDate(entity.getRequestDate());
+		dto.setDeliveryComments(entity.getDeliveryComments());
+		dto.setGoodsDescription(entity.getGoodsDescription());
+		dto.setStatus(entity.getStatus());
+		
+		return dto;
+	}
+	
+	public PhoneUserDTO mapToPhoneUserDTO(PhoneUser entity) {
+		if (entity == null)
+			return null;
+
+		PhoneUserDTO dto = new PhoneUserDTO();
+		dto.setUserId(entity.getUserId());
+		dto.setLoginName(entity.getLoginName());
+		dto.setLoginPassword(entity.getLoginPassword());
+		dto.setCreationDate(entity.getCreationDate());
+		dto.setfName(entity.getfName());
+		dto.setmName(entity.getmName());
+		dto.setlName(entity.getlName());
+		dto.setOrganizationType(entity.getOrganizationType());
+		dto.setEmail(entity.getEmail());
+		dto.setImagePath(entity.getImagePath());
+		dto.setAddress(entity.getAddress());
+		dto.setMobilePhone(entity.getMobilePhone());
+		dto.setOrganizationName(entity.getOrganizationName());
+		dto.setUserStatus(entity.getUserStatus());
+		dto.setUserType(entity.getUserType());
+
+		return dto;
+	}
+	
+	////////////////////////////////////////////////////////////////////////////////
 	public Country mapToCountryEntity(CountryDTO dto) {
 		if (dto == null)
 			return null;
@@ -72,14 +178,106 @@ public class EntityMapper {
 		return entity;
 	}
 	
-	// TODO mapToBoxesEntity;
-	// TODO mapToCabinsEntity;
-	// TODO mapToCitiesEntity;
-	// TODO mapToFeaturesEntity;
-	// TODO mapToPhonesEntity;
-	// TODO mapToLogisticsEntity;
-	// TODO mapToPhoneUserEntity;
+	public Box mapToBoxEntity(BoxDTO dto) {
+		if (dto == null)
+			return null;
 
+		Box entity = new Box();
+		entity.setBoxId(dto.getBoxId());
+		entity.setBoxName(dto.getBoxName());
+		entity.setLongitude(dto.getLongitude());
+		entity.setLatitude(dto.getLatitude());
+		entity.setStreetName(dto.getStreetName());
+
+		return entity;
+	}
+	
+	public Cabin mapToCabinEntity(CabinDTO dto) {
+		if (dto == null)
+			return null;
+
+		Cabin entity = new Cabin();
+		entity.setCabinId(dto.getCabinId());
+		entity.setCabinName(dto.getCabinName());
+		return entity;
+	}
+	
+	public City mapToCityEntity(CityDTO dto) {
+		if (dto == null)
+			return null;
+
+		City entity = new City();
+		entity.setCityId(dto.getCityId());
+		entity.setNameEn(dto.getNameEn());
+		entity.setNameAr(dto.getNameAr());
+
+		return entity;
+	}
+	
+	public Feature mapToFeatureEntity(FeatureDTO dto) {
+		if (dto == null)
+			return null;
+
+		Feature entity = new Feature();
+		entity.setFeatureId(dto.getFeatureId());
+		entity.setName(dto.getName());
+		entity.setValue(dto.getValue());
+		entity.setType(dto.getType());
+		
+		return entity;
+	}
+	
+	public LandlinePhone mapToLandlinePhoneEntity(LandlinePhoneDTO dto) {
+		if (dto == null)
+			return null;
+
+		LandlinePhone entity = new LandlinePhone();
+		entity.setLandlinePhoneId(dto.getLandlinePhoneId());
+		entity.setPhoneNumber(dto.getPhoneNumber());
+
+		return entity;
+	}
+	
+	public Logistics mapToLogisticsEntity(LogisticsDTO dto) {
+		if (dto == null)
+			return null;
+
+		Logistics entity = new Logistics();
+		entity.setLogisticsId(dto.getLogisticsId());
+		entity.setDeliveryToStreet(dto.getDeliveryToStreet());
+		entity.setRequestDate(dto.getRequestDate());
+		entity.setDeliveryComments(dto.getDeliveryComments());
+		entity.setGoodsDescription(dto.getGoodsDescription());
+		entity.setStatus(dto.getStatus());
+		
+		return entity;
+	}
+	
+	public PhoneUser mapToPhoneUserEntity(PhoneUserDTO dto) {
+		if (dto == null)
+			return null;
+
+		PhoneUser entity = new PhoneUser();
+		entity.setUserId(dto.getUserId());
+		entity.setLoginName(dto.getLoginName());
+		entity.setLoginPassword(dto.getLoginPassword());
+		entity.setCreationDate(dto.getCreationDate());
+		entity.setfName(dto.getfName());
+		entity.setmName(dto.getmName());
+		entity.setlName(dto.getlName());
+		entity.setOrganizationType(dto.getOrganizationType());
+		entity.setEmail(dto.getEmail());
+		entity.setImagePath(dto.getImagePath());
+		entity.setAddress(dto.getAddress());
+		entity.setMobilePhone(dto.getMobilePhone());
+		entity.setOrganizationName(dto.getOrganizationName());
+		entity.setUserStatus(dto.getUserStatus());
+		entity.setUserType(dto.getUserType());
+
+		return entity;
+	}
+	
+	///////////////////////////////////////////////////////////////////////////////////////////////
 	public List<CountryDTO> mapToCountriesDTOs(List<Country> countries) {
 		if (countries == null)
 			return null;
@@ -107,6 +305,125 @@ public class EntityMapper {
 		
 		return dtos;
 	}
+	
+	public List<BoxDTO> mapToBoxiesDTOs(List<Box> boxies) {
+		if (boxies == null)
+			return null;
+
+		List<BoxDTO> dtos = boxies.stream().map(new Function<Box, BoxDTO>() {
+			@Override
+			public BoxDTO apply(Box entity) {
+				return mapToBoxDTO(entity);
+			}
+		}).collect(Collectors.toList());
+
+		return dtos;
+	}
+	
+	public List<CabinDTO> mapToCabinsDTOs(List<Cabin> Cabins) {
+		if (Cabins == null)
+			return null;
+
+		List<CabinDTO> dtos = Cabins.stream().map(new Function<Cabin, CabinDTO>() {
+			@Override
+			public CabinDTO apply(Cabin entity) {
+				return mapToCabinDTO(entity);
+			}
+		}).collect(Collectors.toList());
+
+		return dtos;
+	}
+	
+	public List<CityDTO> mapToCitiesDTOs(List<City> Cities) {
+		if (Cities == null)
+			return null;
+
+		List<CityDTO> dtos = Cities.stream().map(new Function<City, CityDTO>() {
+			@Override
+			public CityDTO apply(City entity) {
+				return mapToCityDTO(entity);
+			}
+		}).collect(Collectors.toList());
+
+		return dtos;
+	}
+	
+	public List<FeatureDTO> mapToFeaturesDTOs(List<Feature> Features) {
+		if (Features == null)
+			return null;
+
+		List<FeatureDTO> dtos = Features.stream().map(new Function<Feature, FeatureDTO>() {
+			@Override
+			public FeatureDTO apply(Feature entity) {
+				return mapToFeatureDTO(entity);
+			}
+		}).collect(Collectors.toList());
+
+		return dtos;
+	}
+	
+	public List<LandlinePhoneDTO> mapToLandlinePhonesDTOs(List<LandlinePhone> LandlinePhones) {
+		if (LandlinePhones == null)
+			return null;
+
+		List<LandlinePhoneDTO> dtos = LandlinePhones.stream().map(new Function<LandlinePhone, LandlinePhoneDTO>() {
+			@Override
+			public LandlinePhoneDTO apply(LandlinePhone entity) {
+				return mapToLandlinePhoneDTO(entity);
+			}
+		}).collect(Collectors.toList());
+
+		return dtos;
+	}
+	
+	public List<LogisticsDTO> mapToLogisticsDTOs(List<Logistics> Logistics) {
+		if (Logistics == null)
+			return null;
+
+		List<LogisticsDTO> dtos = Logistics.stream().map(new Function<Logistics, LogisticsDTO>() {
+			@Override
+			public LogisticsDTO apply(Logistics entity) {
+				return mapToLogisticsDTO(entity);
+			}
+		}).collect(Collectors.toList());
+
+		return dtos;
+	}
+	
+	public List<PhoneUserDTO> mapToPhoneUsersDTOs(List<PhoneUser> PhoneUsers) {
+		if (PhoneUsers == null)
+			return null;
+
+		List<PhoneUserDTO> dtos = PhoneUsers.stream().map(new Function<PhoneUser, PhoneUserDTO>() {
+			@Override
+			public PhoneUserDTO apply(PhoneUser entity) {
+				return mapToPhoneUserDTO(entity);
+			}
+		}).collect(Collectors.toList());
+
+		return dtos;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	public List<Country> mapToCountriesEntities(List<CountryDTO> countries) {
 		if (countries == null)
@@ -136,13 +453,110 @@ public class EntityMapper {
 		return entities;
 	}
 	
-	// TODO mapToAreaEntities;
-	// TODO mapToBoxesEntities;
-	// TODO mapToCabinsEntities;
-	// TODO mapToCitiesEntities;
-	// TODO mapToFeaturesEntities;
-	// TODO mapToPhonesEntities;
-	// TODO mapToLogisticsEntities;
-	// TODO mapToPhoneUserEntities;
+
+	public List<Box> mapToBoxesEntities(List<BoxDTO> Boxes) {
+		if (Boxes == null)
+			return null;
+		
+		List<Box> entities = Boxes.stream().map(new Function<BoxDTO, Box>() {
+			@Override
+			public Box apply(BoxDTO dto) {
+				return mapToBoxEntity(dto);
+			}
+		}).collect(Collectors.toList());
+		
+		return entities;
+	}
+	
+
+	public List<Cabin> mapToCabinsEntities(List<CabinDTO> Cabins) {
+		if (Cabins == null)
+			return null;
+		
+		List<Cabin> entities = Cabins.stream().map(new Function<CabinDTO, Cabin>() {
+			@Override
+			public Cabin apply(CabinDTO dto) {
+				return mapToCabinEntity(dto);
+			}
+		}).collect(Collectors.toList());
+		
+		return entities;
+	}
+	
+
+	public List<City> mapToCitiesEntities(List<CityDTO> Cities) {
+		if (Cities == null)
+			return null;
+		
+		List<City> entities = Cities.stream().map(new Function<CityDTO, City>() {
+			@Override
+			public City apply(CityDTO dto) {
+				return mapToCityEntity(dto);
+			}
+		}).collect(Collectors.toList());
+		
+		return entities;
+	}
+	
+
+	public List<Feature> mapToFeaturesEntities(List<FeatureDTO> Features) {
+		if (Features == null)
+			return null;
+		
+		List<Feature> entities = Features.stream().map(new Function<FeatureDTO, Feature>() {
+			@Override
+			public Feature apply(FeatureDTO dto) {
+				return mapToFeatureEntity(dto);
+			}
+		}).collect(Collectors.toList());
+		
+		return entities;
+	}
+	
+
+	public List<LandlinePhone> mapToLandlinePhonesEntities(List<LandlinePhoneDTO> landlinePhones) {
+		if (landlinePhones == null)
+			return null;
+		
+		List<LandlinePhone> entities = landlinePhones.stream().map(new Function<LandlinePhoneDTO, LandlinePhone>() {
+			@Override
+			public LandlinePhone apply(LandlinePhoneDTO dto) {
+				return mapToLandlinePhoneEntity(dto);
+			}
+		}).collect(Collectors.toList());
+		
+		return entities;
+	}
+	
+
+	public List<Logistics> mapToLogisticsEntities(List<LogisticsDTO> logistics) {
+		if (logistics == null)
+			return null;
+		
+		List<Logistics> entities = logistics.stream().map(new Function<LogisticsDTO, Logistics>() {
+			@Override
+			public Logistics apply(LogisticsDTO dto) {
+				return mapToLogisticsEntity(dto);
+			}
+		}).collect(Collectors.toList());
+		
+		return entities;
+	}
+	
+
+	public List<PhoneUser> mapToPhoneUserEntities(List<PhoneUserDTO> phoneUser) {
+		if (phoneUser == null)
+			return null;
+		
+		List<PhoneUser> entities = phoneUser.stream().map(new Function<PhoneUserDTO, PhoneUser>() {
+			@Override
+			public PhoneUser apply(PhoneUserDTO dto) {
+				return mapToPhoneUserEntity(dto);
+			}
+		}).collect(Collectors.toList());
+		
+		return entities;
+	}
+	
 
 }

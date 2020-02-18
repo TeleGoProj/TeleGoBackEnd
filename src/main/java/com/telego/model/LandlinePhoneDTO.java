@@ -1,9 +1,8 @@
 package com.telego.model;
 
 import java.util.List;
-import java.util.Collection;
 
-import com.telego.database.entity.Box;
+import com.telego.model.PhoneUserDTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,9 +17,9 @@ import lombok.NoArgsConstructor;
 public class LandlinePhoneDTO {
 	private Long landlinePhoneId;
 	private Long phoneNumber;
-	private PhoneUser phoneUserByUserId;
+	private PhoneUserDTO phoneUsers;
 	
-	private List<BoxDTO>boxByBoxId;
+	private List<BoxDTO>boxes;
 	
 	
 }
