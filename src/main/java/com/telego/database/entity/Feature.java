@@ -1,6 +1,7 @@
 package com.telego.database.entity;
 
-import java.util.Collection;
+
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -38,7 +39,7 @@ public class Feature {
 	private Feature featureByFeatureId_0;
 
 	@OneToMany(mappedBy = "featureByFeatureId")
-	private Collection<UserFeature> userFeaturesByFeatureId;
+	private List<UserFeature> userFeaturesByFeatureId;
 
 	public Long getFeatureId() {
 		return featureId;
@@ -88,11 +89,11 @@ public class Feature {
 		this.featureByFeatureId_0 = featureByFeatureId_0;
 	}
 
-	public Collection<UserFeature> getUserFeaturesByFeatureId() {
+	public List<UserFeature> getUserFeaturesByFeatureId() {
 		return userFeaturesByFeatureId;
 	}
 
-	public void setUserFeaturesByFeatureId(Collection<UserFeature> userFeaturesByFeatureId) {
+	public void setUserFeaturesByFeatureId(List<UserFeature> userFeaturesByFeatureId) {
 		this.userFeaturesByFeatureId = userFeaturesByFeatureId;
 	}
 

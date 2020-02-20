@@ -1,6 +1,7 @@
 package com.telego.database.entity;
 
-import java.util.Collection;
+
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -46,7 +47,7 @@ public class Box {
 	
 	
 	@OneToMany(mappedBy = "boxByBoxId")
-	private Collection<LandlinePhone> landlinePhonesByBoxId;
+	private List<LandlinePhone> landlinePhonesByBoxId;
 
 	public Long getBoxId() {
 		return boxId;
@@ -104,11 +105,11 @@ public class Box {
 		this.cabinByCabinId = cabinByCabinId;
 	}
 
-	public Collection<LandlinePhone> getLandlinePhonesByBoxId() {
+	public List<LandlinePhone> getLandlinePhonesByBoxId() {
 		return landlinePhonesByBoxId;
 	}
 
-	public void setLandlinePhonesByBoxId(Collection<LandlinePhone> landlinePhonesByBoxId) {
+	public void setLandlinePhonesByBoxId(List<LandlinePhone> landlinePhonesByBoxId) {
 		this.landlinePhonesByBoxId = landlinePhonesByBoxId;
 	}
 

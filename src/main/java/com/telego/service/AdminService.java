@@ -49,54 +49,54 @@ public class AdminService {
 	public AdminLookupsResponse updateAdminLookupsResponse(AdminLookupsRequest request) {
 		AdminLookupsResponse response = new AdminLookupsResponse();
 		
-		List<CountryDTO> addCountries = request.getAddedCountries();
+		List<CountryDTO> addedCountries = request.getAddedCountries();
 		List<CountryDTO> updatedCountries = request.getUpdatedCountries();
 		List<CountryDTO> deletedCountries = request.getDeletedCountries();
 		
-		List<AreaDTO> addAreas = request.getAddedAreas();
+		List<AreaDTO> addedAreas = request.getAddedAreas();
 		List<AreaDTO> updatedAreas = request.getUpdatedAreas();
 		List<AreaDTO> deletedAreas = request.getDeletedAreas();
 		
-		List<BoxDTO> addBoxes = request.getAddedBoxes();
+		List<BoxDTO> addedBoxes = request.getAddedBoxes();
 		List<BoxDTO> updatedBoxes = request.getUpdatedBoxes();
 		List<BoxDTO> deletedBoxes = request.getDeletedBoxes();
 		
-		List<CabinDTO> addCabins = request.getAddedCabins();
+		List<CabinDTO> addedCabins = request.getAddedCabins();
 		List<CabinDTO> updatedCabins = request.getUpdatedCabins();
 		List<CabinDTO> deletedCabins = request.getDeletedCabins();
 		
-		List<CityDTO> addCities = request.getAddedCities();
+		List<CityDTO> addedCities = request.getAddedCities();
 		List<CityDTO> updatedCities = request.getUpdatedCities();
 		List<CityDTO> deletedCities = request.getDeletedCities();
 		
-		List<FeatureDTO> addFeatures = request.getAddedFeatures();
+		List<FeatureDTO> addedFeatures = request.getAddedFeatures();
 		List<FeatureDTO> updatedFeatures = request.getUpdatedFeatures();
 		List<FeatureDTO> deletedFeatures = request.getDeletedFeatures();
 		
 		
 		
-		lookupService.saveCountries(addCountries);
+		lookupService.saveCountries(addedCountries);
 		lookupService.saveCountries(updatedCountries);
 		lookupService.deleteCountries(deletedCountries);
 		
-		lookupService.saveAreas(addAreas);
+		lookupService.saveAreas(addedAreas);
 		lookupService.saveAreas(updatedAreas);
 		lookupService.deleteAreas(deletedAreas);
 		
-		lookupService.saveBoxes(addBoxes);
+		lookupService.saveBoxes(addedBoxes);
 		lookupService.saveBoxes(updatedBoxes);
 		lookupService.deleteBoxes(deletedBoxes);
 		
-		lookupService.saveCabins(addCabins);
+		lookupService.saveCabins(addedCabins);
 		lookupService.saveCabins(updatedCabins);
 		lookupService.deleteCabins(deletedCabins);
 		
-		lookupService.saveCities(addCities);
+		lookupService.saveCities(addedCities);
 		lookupService.saveCities(updatedCities);
 		lookupService.deleteCities(deletedCities);
 		
 		
-		lookupService.saveFeatures(addFeatures);
+		lookupService.saveFeatures(addedFeatures);
 		lookupService.saveFeatures(updatedFeatures);
 		lookupService.deleteFeatures(deletedFeatures);
 				

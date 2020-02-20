@@ -141,9 +141,9 @@ public class EntityMapper {
 		dto.setLoginName(entity.getLoginName());
 		dto.setLoginPassword(entity.getLoginPassword());
 		dto.setCreationDate(entity.getCreationDate());
-		dto.setfName(entity.getfName());
-		dto.setmName(entity.getmName());
-		dto.setlName(entity.getlName());
+		dto.setFName(entity.getfName());
+		dto.setMName(entity.getmName());
+		dto.setLName(entity.getlName());
 		dto.setOrganizationType(entity.getOrganizationType());
 		dto.setEmail(entity.getEmail());
 		dto.setImagePath(entity.getImagePath());
@@ -266,9 +266,9 @@ public class EntityMapper {
 		entity.setLoginName(dto.getLoginName());
 		entity.setLoginPassword(dto.getLoginPassword());
 		entity.setCreationDate(dto.getCreationDate());
-		entity.setfName(dto.getfName());
-		entity.setmName(dto.getmName());
-		entity.setlName(dto.getlName());
+		entity.setfName(dto.getFName());
+		entity.setmName(dto.getMName());
+		entity.setlName(dto.getLName());
 		entity.setOrganizationType(dto.getOrganizationType());
 		entity.setEmail(dto.getEmail());
 		entity.setImagePath(dto.getImagePath());
@@ -310,11 +310,11 @@ public class EntityMapper {
 		return dtos;
 	}
 	
-	public List<BoxDTO> mapToBoxiesDTOs(List<Box> boxies) {
-		if (boxies == null)
+	public List<BoxDTO> mapToBoxesDTOs(List<Box> boxes) {
+		if (boxes == null)
 			return null;
 
-		List<BoxDTO> dtos = boxies.stream().map(new Function<Box, BoxDTO>() {
+		List<BoxDTO> dtos = boxes.stream().map(new Function<Box, BoxDTO>() {
 			@Override
 			public BoxDTO apply(Box entity) {
 				return mapToBoxDTO(entity);
@@ -324,11 +324,11 @@ public class EntityMapper {
 		return dtos;
 	}
 	
-	public List<CabinDTO> mapToCabinsDTOs(List<Cabin> Cabins) {
-		if (Cabins == null)
+	public List<CabinDTO> mapToCabinsDTOs(List<Cabin> cabins) {
+		if (cabins == null)
 			return null;
 
-		List<CabinDTO> dtos = Cabins.stream().map(new Function<Cabin, CabinDTO>() {
+		List<CabinDTO> dtos = cabins.stream().map(new Function<Cabin, CabinDTO>() {
 			@Override
 			public CabinDTO apply(Cabin entity) {
 				return mapToCabinDTO(entity);
@@ -338,11 +338,11 @@ public class EntityMapper {
 		return dtos;
 	}
 	
-	public List<CityDTO> mapToCitiesDTOs(List<City> Cities) {
-		if (Cities == null)
+	public List<CityDTO> mapToCitiesDTOs(List<City> cities) {
+		if (cities == null)
 			return null;
 
-		List<CityDTO> dtos = Cities.stream().map(new Function<City, CityDTO>() {
+		List<CityDTO> dtos = cities.stream().map(new Function<City, CityDTO>() {
 			@Override
 			public CityDTO apply(City entity) {
 				return mapToCityDTO(entity);
@@ -352,11 +352,11 @@ public class EntityMapper {
 		return dtos;
 	}
 	
-	public List<FeatureDTO> mapToFeaturesDTOs(List<Feature> Features) {
-		if (Features == null)
+	public List<FeatureDTO> mapToFeaturesDTOs(List<Feature> features) {
+		if (features == null)
 			return null;
 
-		List<FeatureDTO> dtos = Features.stream().map(new Function<Feature, FeatureDTO>() {
+		List<FeatureDTO> dtos = features.stream().map(new Function<Feature, FeatureDTO>() {
 			@Override
 			public FeatureDTO apply(Feature entity) {
 				return mapToFeatureDTO(entity);
@@ -366,11 +366,11 @@ public class EntityMapper {
 		return dtos;
 	}
 	
-	public List<LandlinePhoneDTO> mapToLandlinePhonesDTOs(List<LandlinePhone> LandlinePhones) {
-		if (LandlinePhones == null)
+	public List<LandlinePhoneDTO> mapToLandlinePhonesDTOs(List<LandlinePhone> landlinePhones) {
+		if (landlinePhones == null)
 			return null;
 
-		List<LandlinePhoneDTO> dtos = LandlinePhones.stream().map(new Function<LandlinePhone, LandlinePhoneDTO>() {
+		List<LandlinePhoneDTO> dtos = landlinePhones.stream().map(new Function<LandlinePhone, LandlinePhoneDTO>() {
 			@Override
 			public LandlinePhoneDTO apply(LandlinePhone entity) {
 				return mapToLandlinePhoneDTO(entity);
@@ -380,11 +380,11 @@ public class EntityMapper {
 		return dtos;
 	}
 	
-	public List<LogisticsDTO> mapToLogisticsDTOs(List<Logistics> Logistics) {
-		if (Logistics == null)
+	public List<LogisticsDTO> mapToLogisticsDTOs(List<Logistics> logistics) {
+		if (logistics == null)
 			return null;
 
-		List<LogisticsDTO> dtos = Logistics.stream().map(new Function<Logistics, LogisticsDTO>() {
+		List<LogisticsDTO> dtos = logistics.stream().map(new Function<Logistics, LogisticsDTO>() {
 			@Override
 			public LogisticsDTO apply(Logistics entity) {
 				return mapToLogisticsDTO(entity);
@@ -394,11 +394,11 @@ public class EntityMapper {
 		return dtos;
 	}
 	
-	public List<PhoneUserDTO> mapToPhoneUsersDTOs(List<PhoneUser> PhoneUsers) {
-		if (PhoneUsers == null)
+	public List<PhoneUserDTO> mapToPhoneUsersDTOs(List<PhoneUser> phoneUsers) {
+		if (phoneUsers == null)
 			return null;
 
-		List<PhoneUserDTO> dtos = PhoneUsers.stream().map(new Function<PhoneUser, PhoneUserDTO>() {
+		List<PhoneUserDTO> dtos = phoneUsers.stream().map(new Function<PhoneUser, PhoneUserDTO>() {
 			@Override
 			public PhoneUserDTO apply(PhoneUser entity) {
 				return mapToPhoneUserDTO(entity);
@@ -458,11 +458,11 @@ public class EntityMapper {
 	}
 	
 
-	public List<Box> mapToBoxesEntities(List<BoxDTO> Boxes) {
-		if (Boxes == null)
+	public List<Box> mapToBoxesEntities(List<BoxDTO> boxes) {
+		if (boxes == null)
 			return null;
 		
-		List<Box> entities = Boxes.stream().map(new Function<BoxDTO, Box>() {
+		List<Box> entities = boxes.stream().map(new Function<BoxDTO, Box>() {
 			@Override
 			public Box apply(BoxDTO dto) {
 				return mapToBoxEntity(dto);
@@ -473,11 +473,11 @@ public class EntityMapper {
 	}
 	
 
-	public List<Cabin> mapToCabinsEntities(List<CabinDTO> Cabins) {
-		if (Cabins == null)
+	public List<Cabin> mapToCabinsEntities(List<CabinDTO> cabins) {
+		if (cabins == null)
 			return null;
 		
-		List<Cabin> entities = Cabins.stream().map(new Function<CabinDTO, Cabin>() {
+		List<Cabin> entities = cabins.stream().map(new Function<CabinDTO, Cabin>() {
 			@Override
 			public Cabin apply(CabinDTO dto) {
 				return mapToCabinEntity(dto);
@@ -488,11 +488,11 @@ public class EntityMapper {
 	}
 	
 
-	public List<City> mapToCitiesEntities(List<CityDTO> Cities) {
-		if (Cities == null)
+	public List<City> mapToCitiesEntities(List<CityDTO> cities) {
+		if (cities == null)
 			return null;
 		
-		List<City> entities = Cities.stream().map(new Function<CityDTO, City>() {
+		List<City> entities = cities.stream().map(new Function<CityDTO, City>() {
 			@Override
 			public City apply(CityDTO dto) {
 				return mapToCityEntity(dto);
@@ -503,11 +503,11 @@ public class EntityMapper {
 	}
 	
 
-	public List<Feature> mapToFeaturesEntities(List<FeatureDTO> Features) {
-		if (Features == null)
+	public List<Feature> mapToFeaturesEntities(List<FeatureDTO> features) {
+		if (features == null)
 			return null;
 		
-		List<Feature> entities = Features.stream().map(new Function<FeatureDTO, Feature>() {
+		List<Feature> entities = features.stream().map(new Function<FeatureDTO, Feature>() {
 			@Override
 			public Feature apply(FeatureDTO dto) {
 				return mapToFeatureEntity(dto);

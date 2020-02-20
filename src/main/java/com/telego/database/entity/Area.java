@@ -1,6 +1,7 @@
 package com.telego.database.entity;
 
-import java.util.Collection;
+
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -32,10 +33,10 @@ public class Area {
 	private City cityByCityId;
 
 	@OneToMany(mappedBy = "areaByAreaId")
-	private Collection<Box> boxesByAreaId;
+	private List<Box> boxesByAreaId;
 
 	@OneToMany(mappedBy = "areaByDeliveryToAreaId")
-	private Collection<Logistics> logisticsByAreaId;
+	private List<Logistics> logisticsByAreaId;
 
 	public Long getAreaId() {
 		return areaId;
@@ -69,19 +70,19 @@ public class Area {
 		this.cityByCityId = cityByCityId;
 	}
 
-	public Collection<Box> getBoxesByAreaId() {
+	public List<Box> getBoxesByAreaId() {
 		return boxesByAreaId;
 	}
 
-	public void setBoxesByAreaId(Collection<Box> boxesByAreaId) {
+	public void setBoxesByAreaId(List<Box> boxesByAreaId) {
 		this.boxesByAreaId = boxesByAreaId;
 	}
 
-	public Collection<Logistics> getLogisticsByAreaId() {
+	public List<Logistics> getLogisticsByAreaId() {
 		return logisticsByAreaId;
 	}
 
-	public void setLogisticsByAreaId(Collection<Logistics> logisticsByAreaId) {
+	public void setLogisticsByAreaId(List<Logistics> logisticsByAreaId) {
 		this.logisticsByAreaId = logisticsByAreaId;
 	}
 

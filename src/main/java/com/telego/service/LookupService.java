@@ -124,7 +124,7 @@ public void deleteBoxes(List<BoxDTO> boxes) {
 		return;
 	
 	List<Box> boxesEntities = mapper.mapToBoxesEntities(boxes);
-	BoxRepository.deleteAll(boxesEntities);
+	boxRepository.deleteAll(boxesEntities);
 }
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -134,7 +134,7 @@ public List<CabinDTO> getAllCabins(){
 	return CabinsDTOs;
 }
 
-public List<CabinDTO> savecabins(List<CabinDTO> cabins) {
+public List<CabinDTO> saveCabins(List<CabinDTO> cabins) {
 	if(cabins == null)
 		return null;
 	
@@ -149,7 +149,7 @@ public void deleteCabins(List<CabinDTO> cabins) {
 	if(cabins == null)
 		return;
 	
-	List<Area> cabinsEntities = mapper.mapToCabinEntities(cabins);
+	List<Cabin> cabinsEntities = mapper.mapToCabinsEntities(cabins);
 	cabinRepository.deleteAll(cabinsEntities);
 }
 ///////////////////////////////////////////////////////////////////////////////
