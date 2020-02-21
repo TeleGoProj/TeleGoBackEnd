@@ -3,6 +3,7 @@ package com.telego.database.entity;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -34,19 +35,19 @@ public class Box {
 	@Column(name = "STREET_NAME")
 	private String streetName;
 
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "AREA_ID", referencedColumnName = "AREA_ID")
 	private Area areaByAreaId;
 	
 	
 
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "CABIN_ID", referencedColumnName = "CABIN_ID")
 	private Cabin cabinByCabinId;
 
 	
 	
-	@OneToMany(mappedBy = "boxByBoxId")
+	@OneToMany(mappedBy = "boxByBoxId", cascade=CascadeType.ALL)
 	private List<LandlinePhone> landlinePhonesByBoxId;
 
 	public Long getBoxId() {

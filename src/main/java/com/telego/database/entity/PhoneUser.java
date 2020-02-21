@@ -3,6 +3,7 @@ package com.telego.database.entity;
 import java.sql.Time;
 import java.util.Collection;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -64,16 +65,16 @@ public class PhoneUser {
 	@Column(name = "USER_TYPE")
 	private Long userType;
 
-	@OneToMany(mappedBy = "phoneUserByUserId")
+	@OneToMany(mappedBy = "phoneUserByUserId", cascade=CascadeType.ALL)
 	private Collection<LandlinePhone> landlinePhonesByUserId;
 
-	@OneToMany(mappedBy = "phoneUserByRequesterUserId")
+	@OneToMany(mappedBy = "phoneUserByRequesterUserId", cascade=CascadeType.ALL)
 	private Collection<Logistics> logisticsByUserId;
 
-	@OneToMany(mappedBy = "phoneUserByDeliveryToUserId")
+	@OneToMany(mappedBy = "phoneUserByDeliveryToUserId", cascade=CascadeType.ALL)
 	private Collection<Logistics> logisticsByUserId_0;
 
-	@OneToMany(mappedBy = "phoneUserByUserId")
+	@OneToMany(mappedBy = "phoneUserByUserId", cascade=CascadeType.ALL)
 	private Collection<UserFeature> userFeaturesByUserId;
 
 	public Long getUserId() {

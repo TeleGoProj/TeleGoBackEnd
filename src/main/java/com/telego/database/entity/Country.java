@@ -3,6 +3,7 @@ package com.telego.database.entity;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -29,7 +30,7 @@ public class Country {
 	@Column(name = "CODE")
 	private String code;
 
-	@OneToMany(mappedBy = "countryByCountryId")
+	@OneToMany(mappedBy = "countryByCountryId", cascade=CascadeType.ALL)
 	private List<City> citiesByCountryId;
 
 	public Long getCountryId() {

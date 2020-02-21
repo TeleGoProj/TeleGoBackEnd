@@ -2,6 +2,7 @@ package com.telego.database.entity;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -30,13 +31,13 @@ public class City {
 	@Column(name = "CODE")
 	private String code;
 
-	@OneToMany(mappedBy = "cityByCityId")
+	@OneToMany(mappedBy = "cityByCityId", cascade=CascadeType.ALL)
 	private List<Area> areasByCityId;
 
-	@OneToMany(mappedBy = "cityByCityId")
+	@OneToMany(mappedBy = "cityByCityId", cascade=CascadeType.ALL)
 	private List<Cabin> cabinsByCityId;
 
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "COUNTRY_ID", referencedColumnName = "COUNTRY_ID", nullable = false)
 	private Country countryByCountryId;
 

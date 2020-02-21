@@ -2,6 +2,7 @@ package com.telego.database.entity;
 
 import java.sql.Time;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -35,15 +36,15 @@ public class Logistics {
 	@Column(name = "GOODS_DESCRIPTION")
 	private String goodsDescription;
 
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "REQUESTER_USER_ID", referencedColumnName = "USER_ID")
 	private PhoneUser phoneUserByRequesterUserId;
 
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "DELIVERY_TO_USER_ID", referencedColumnName = "USER_ID")
 	private PhoneUser phoneUserByDeliveryToUserId;
 
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "DELIVERY_TO_AREA_ID", referencedColumnName = "AREA_ID")
 	private Area areaByDeliveryToAreaId;
 

@@ -1,5 +1,6 @@
 package com.telego.database.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,11 +24,11 @@ public class LandlinePhone {
 	@Column(name = "PHONE_NUMBER")
 	private Long phoneNumber;
 
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "USER_ID", referencedColumnName = "USER_ID")
 	private PhoneUser phoneUserByUserId;
 
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "BOX_ID", referencedColumnName = "BOX_ID")
 	private Box boxByBoxId;
 

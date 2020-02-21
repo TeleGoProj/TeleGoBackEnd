@@ -1,5 +1,6 @@
 package com.telego.database.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,11 +21,11 @@ public class UserFeature {
 	@SequenceGenerator(name="userFeaureGenerator", sequenceName="user_feaure_sequence" , initialValue=1000, allocationSize=1)
 	private Long userFeatureId;
 
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "USER_ID", referencedColumnName = "USER_ID")
 	private PhoneUser phoneUserByUserId;
 
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "FEATURE_ID", referencedColumnName = "FEATURE_ID")
 	private Feature featureByFeatureId;
 

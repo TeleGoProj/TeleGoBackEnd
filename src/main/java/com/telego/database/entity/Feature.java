@@ -3,6 +3,7 @@ package com.telego.database.entity;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -31,14 +32,14 @@ public class Feature {
 	@Column(name = "TYPE")
 	private String type;
 
-	@OneToOne
+	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "FEATURE_ID", referencedColumnName = "FEATURE_ID", nullable = false)
 	private Feature featureByFeatureId;
 
-	@OneToOne(mappedBy = "featureByFeatureId")
+	@OneToOne(mappedBy = "featureByFeatureId", cascade=CascadeType.ALL)
 	private Feature featureByFeatureId_0;
 
-	@OneToMany(mappedBy = "featureByFeatureId")
+	@OneToMany(mappedBy = "featureByFeatureId", cascade=CascadeType.ALL)
 	private List<UserFeature> userFeaturesByFeatureId;
 
 	public Long getFeatureId() {
