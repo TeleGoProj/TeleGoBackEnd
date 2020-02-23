@@ -18,7 +18,7 @@ public class BoxDTO {
 	private Float latitude;
 	private String streetName;
 	
-	private List<AreaDTO>areas;
+	
 	private List<CabinDTO>cabins;
 	private List<LandlinePhoneDTO>landlinePhones;
 }

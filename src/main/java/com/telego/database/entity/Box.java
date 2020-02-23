@@ -36,12 +36,6 @@ public class Box {
 	private String streetName;
 
 	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name = "AREA_ID", referencedColumnName = "AREA_ID")
-	private Area areaByAreaId;
-	
-	
-
-	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "CABIN_ID", referencedColumnName = "CABIN_ID")
 	private Cabin cabinByCabinId;
 
@@ -88,14 +82,6 @@ public class Box {
 
 	public void setStreetName(String streetName) {
 		this.streetName = streetName;
-	}
-
-	public Area getAreaByAreaId() {
-		return areaByAreaId;
-	}
-
-	public void setAreaByAreaId(Area areaByAreaId) {
-		this.areaByAreaId = areaByAreaId;
 	}
 
 	public Cabin getCabinByCabinId() {
