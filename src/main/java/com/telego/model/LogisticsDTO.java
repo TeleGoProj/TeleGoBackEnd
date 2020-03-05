@@ -20,6 +20,7 @@ public class LogisticsDTO {
 	private Long status;
 	private String deliveryComments;
 	private String goodsDescription;
+	private boolean markedAsDeleted;
 	
 	private List<PhoneUserDTO>requestedPhoneUsers;
 	private List<PhoneUserDTO>deliveredPhoneUsers;

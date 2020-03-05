@@ -10,7 +10,6 @@ import com.telego.model.CountryDTO;
 import com.telego.model.FeatureDTO;
 import com.telego.model.LandlinePhoneDTO;
 import com.telego.model.LogisticsDTO;
-import com.telego.model.PhoneUserDTO;
 import com.telego.model.status.STATUS;
 
 import lombok.AllArgsConstructor;
@@ -34,6 +33,5 @@ public class AdminLookupsResponse extends Response {
 	private List<FeatureDTO> lookupsFeatures;
 	private List<LandlinePhoneDTO> lookupsLandlinePhones;
 	private List<LogisticsDTO> lookupslogistics;
-	private List<PhoneUserDTO> lookupsPhoneUsers;
 	
 }

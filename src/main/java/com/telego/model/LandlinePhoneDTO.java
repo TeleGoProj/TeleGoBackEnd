@@ -2,22 +2,20 @@ package com.telego.model;
 
 import java.util.List;
 
-import com.telego.model.PhoneUserDTO;
-
 import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode
-
-public class LandlinePhoneDTO {
+public class LandlinePhoneDTO extends ModelDTO{
 	private Long landlinePhoneId;
 	private Long phoneNumber;
-	private PhoneUserDTO phoneUsers;
+	private PhoneUserDTO phoneUser;
+	private boolean markedAsDeleted;
 	
 	private List<BoxDTO>boxes;
 	

@@ -4,15 +4,15 @@ import java.sql.Time;
 import java.util.List;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode
-public class PhoneUserDTO {
+public class PhoneUserDTO extends ModelDTO{
 	private Long userId;
 	private String loginName;
 	private String loginPassword;

@@ -3,14 +3,16 @@ package com.telego.model;
 import java.util.List;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
-@Data
+import lombok.Setter;
+
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode
-public class CountryDTO {
+public class CountryDTO extends ModelDTO{
 
 	@EqualsAndHashCode.Include
 	private Long countryId;
@@ -18,6 +20,7 @@ public class CountryDTO {
 	private String nameEn;
 	private String nameAr;
 	private String code;
+	private boolean markedAsDeleted;
 	
 	private List<CityDTO> cities;
 

@@ -11,6 +11,8 @@ import com.telego.model.CabinDTO;
 import com.telego.model.CityDTO;
 import com.telego.model.CountryDTO;
 import com.telego.model.FeatureDTO;
+import com.telego.model.LandlinePhoneDTO;
+import com.telego.model.ModelDTO;
 import com.telego.model.request.AdminLookupsRequest;
 import com.telego.model.response.AdminLookupsResponse;
 import com.telego.model.status.STATUS;
@@ -21,85 +23,114 @@ public class AdminService {
 	@Autowired
 	private LookupService lookupService;
 	
-	public AdminLookupsResponse getAdminLookupsResponse() {
+//	public AdminLookupsResponse getAdminLookupsResponse() {
+//		AdminLookupsResponse response = new AdminLookupsResponse();
+//		
+//		List<CountryDTO> countries  = lookupService.getAllCountries();
+//		List<AreaDTO> areas = lookupService.getAllAreas();
+//		List<BoxDTO> boxes = lookupService.getAllBoxes();
+//		List<CabinDTO> cabins = lookupService.getAllCabins();
+//		List<CityDTO> cities = lookupService.getAllCities();
+//		List<FeatureDTO> features = lookupService.getAllFeatures();
+//
+//		response.setLookupsCountries(countries);
+//		response.setLookupsAreas(areas);
+//		response.setLookupsBoxes(boxes);
+//		response.setLookupsCabins(cabins);
+//		response.setLookupsCities(cities);
+//		response.setLookupsFeatures(features);
+//		
+//		response.setStatus(STATUS.SUCCESS);
+//		return response;
+//	}
+	
+	@SuppressWarnings("unchecked")
+	public AdminLookupsResponse processCountries(AdminLookupsRequest request) {
 		AdminLookupsResponse response = new AdminLookupsResponse();
 		
-		List<CountryDTO> countries  = lookupService.getAllCountries();
-		List<AreaDTO> areas = lookupService.getAllAreas();
-		List<BoxDTO> boxes = lookupService.getAllBoxes();
-		List<CabinDTO> cabins = lookupService.getAllCabins();
-		List<CityDTO> cities = lookupService.getAllCities();
-		List<FeatureDTO> features = lookupService.getAllFeatures();
-
+		List<CountryDTO> countries = request.getCountries();
 		
-		
-		response.setLookupsCountries(countries);
-		response.setLookupsAreas(areas);
-		response.setLookupsBoxes(boxes);
-		response.setLookupsCabins(cabins);
-		response.setLookupsCities(cities);
-		response.setLookupsFeatures(features);
-
-		
+		lookupService.saveCountries((List<CountryDTO>) ModelDTO.filterUpdatesModels(countries));
+		lookupService.deleteCountries((List<CountryDTO>) ModelDTO.filterDeletesModels(countries));
 		
 		response.setStatus(STATUS.SUCCESS);
 		return response;
 	}
 	
-	public AdminLookupsResponse updateAdminLookupsResponse(AdminLookupsRequest request) {
+	@SuppressWarnings("unchecked")
+	public AdminLookupsResponse processCities(AdminLookupsRequest request) {
 		AdminLookupsResponse response = new AdminLookupsResponse();
 		
-		List<CountryDTO> addedCountries = request.getAddedCountries();
-		List<CountryDTO> updatedCountries = request.getUpdatedCountries();
-		List<CountryDTO> deletedCountries = request.getDeletedCountries();
+		List<CityDTO> cities = request.getCities();
 		
-		List<AreaDTO> addedAreas = request.getAddedAreas();
-		List<AreaDTO> updatedAreas = request.getUpdatedAreas();
-		List<AreaDTO> deletedAreas = request.getDeletedAreas();
+		lookupService.saveCities((List<CityDTO>) ModelDTO.filterUpdatesModels(cities));
+		lookupService.deleteCities((List<CityDTO>) ModelDTO.filterDeletesModels(cities));
 		
-		List<BoxDTO> addedBoxes = request.getAddedBoxes();
-		List<BoxDTO> updatedBoxes = request.getUpdatedBoxes();
-		List<BoxDTO> deletedBoxes = request.getDeletedBoxes();
+		response.setStatus(STATUS.SUCCESS);
+		return response;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public AdminLookupsResponse processAreas(AdminLookupsRequest request) {
+		AdminLookupsResponse response = new AdminLookupsResponse();
 		
-		List<CabinDTO> addedCabins = request.getAddedCabins();
-		List<CabinDTO> updatedCabins = request.getUpdatedCabins();
-		List<CabinDTO> deletedCabins = request.getDeletedCabins();
+		List<AreaDTO> areas = request.getAreas();
 		
-		List<CityDTO> addedCities = request.getAddedCities();
-		List<CityDTO> updatedCities = request.getUpdatedCities();
-		List<CityDTO> deletedCities = request.getDeletedCities();
+		lookupService.saveAreas((List<AreaDTO>) ModelDTO.filterUpdatesModels(areas));
+		lookupService.deleteAreas((List<AreaDTO>) ModelDTO.filterDeletesModels(areas));
 		
-		List<FeatureDTO> addedFeatures = request.getAddedFeatures();
-		List<FeatureDTO> updatedFeatures = request.getUpdatedFeatures();
-		List<FeatureDTO> deletedFeatures = request.getDeletedFeatures();
+		response.setStatus(STATUS.SUCCESS);
+		return response;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public AdminLookupsResponse processBoxes(AdminLookupsRequest request) {
+		AdminLookupsResponse response = new AdminLookupsResponse();
 		
+		List<BoxDTO> boxes = request.getBoxes();
 		
+		lookupService.saveBoxes((List<BoxDTO>) ModelDTO.filterUpdatesModels(boxes));
+		lookupService.deleteBoxes((List<BoxDTO>) ModelDTO.filterDeletesModels(boxes));
 		
-		lookupService.saveCountries(addedCountries);
-		lookupService.saveCountries(updatedCountries);
-		lookupService.deleteCountries(deletedCountries);
+		response.setStatus(STATUS.SUCCESS);
+		return response;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public AdminLookupsResponse processCabins(AdminLookupsRequest request) {
+		AdminLookupsResponse response = new AdminLookupsResponse();
 		
-		lookupService.saveAreas(addedAreas);
-		lookupService.saveAreas(updatedAreas);
-		lookupService.deleteAreas(deletedAreas);
+		List<CabinDTO> cabins = request.getCabins();
 		
-		lookupService.saveBoxes(addedBoxes);
-		lookupService.saveBoxes(updatedBoxes);
-		lookupService.deleteBoxes(deletedBoxes);
+		lookupService.saveCabins((List<CabinDTO>) ModelDTO.filterUpdatesModels(cabins));
+		lookupService.deleteCabins((List<CabinDTO>) ModelDTO.filterDeletesModels(cabins));
 		
-		lookupService.saveCabins(addedCabins);
-		lookupService.saveCabins(updatedCabins);
-		lookupService.deleteCabins(deletedCabins);
+		response.setStatus(STATUS.SUCCESS);
+		return response;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public AdminLookupsResponse processFeatures(AdminLookupsRequest request) {
+		AdminLookupsResponse response = new AdminLookupsResponse();
 		
-		lookupService.saveCities(addedCities);
-		lookupService.saveCities(updatedCities);
-		lookupService.deleteCities(deletedCities);
+		List<FeatureDTO> features = request.getFeatures();
 		
+		lookupService.saveFeatures((List<FeatureDTO>) ModelDTO.filterUpdatesModels(features));
+		lookupService.deleteFeatures((List<FeatureDTO>) ModelDTO.filterDeletesModels(features));
 		
-		lookupService.saveFeatures(addedFeatures);
-		lookupService.saveFeatures(updatedFeatures);
-		lookupService.deleteFeatures(deletedFeatures);
-				
+		response.setStatus(STATUS.SUCCESS);
+		return response;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public AdminLookupsResponse processLandlinePhones(AdminLookupsRequest request) {
+		AdminLookupsResponse response = new AdminLookupsResponse();
+		
+		List<LandlinePhoneDTO> phones = request.getLandlinePhones();
+		
+		lookupService.saveLandlinePhones((List<LandlinePhoneDTO>) ModelDTO.filterUpdatesModels(phones));
+		lookupService.deleteLandlinePhones((List<LandlinePhoneDTO>) ModelDTO.filterDeletesModels(phones));
+		
 		response.setStatus(STATUS.SUCCESS);
 		return response;
 	}

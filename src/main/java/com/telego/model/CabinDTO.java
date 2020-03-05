@@ -1,18 +1,19 @@
 package com.telego.model;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode
-public class CabinDTO {
+public class CabinDTO extends ModelDTO{
 	private Long cabinId;
 	private String cabinName;
 	private BoxDTO boxes;
-	private CityDTO cities;
+	private boolean markedAsDeleted;
+	private CityDTO city;
 	
 }
