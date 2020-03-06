@@ -16,7 +16,7 @@ public class ModelDTO {
 	public static List<? extends ModelDTO> filterUpdatesModels(List<? extends ModelDTO> models) {
 		if (models == null)
 			return null;
-		return models.stream().filter(model -> model.isMarkedAsDeleted()).collect(Collectors.toList());
+		return models.stream().filter(model -> !model.isMarkedAsDeleted()).collect(Collectors.toList());
 	}
 
 	public static List<? extends ModelDTO> filterDeletesModels(List<? extends ModelDTO> models) {

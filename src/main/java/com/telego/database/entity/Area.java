@@ -33,9 +33,6 @@ public class Area {
 	@JoinColumn(name = "CITY_ID", referencedColumnName = "CITY_ID")
 	private City cityByCityId;
 
-	@OneToMany(mappedBy = "areaByAreaId", cascade=CascadeType.ALL)
-	private List<Box> boxesByAreaId;
-
 	@OneToMany(mappedBy = "areaByDeliveryToAreaId", cascade=CascadeType.ALL)
 	private List<Logistics> logisticsByAreaId;
 
@@ -69,14 +66,6 @@ public class Area {
 
 	public void setCityByCityId(City cityByCityId) {
 		this.cityByCityId = cityByCityId;
-	}
-
-	public List<Box> getBoxesByAreaId() {
-		return boxesByAreaId;
-	}
-
-	public void setBoxesByAreaId(List<Box> boxesByAreaId) {
-		this.boxesByAreaId = boxesByAreaId;
 	}
 
 	public List<Logistics> getLogisticsByAreaId() {

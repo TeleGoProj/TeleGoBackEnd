@@ -23,36 +23,40 @@ public class AdminService {
 	@Autowired
 	private LookupService lookupService;
 	
-//	public AdminLookupsResponse getAdminLookupsResponse() {
-//		AdminLookupsResponse response = new AdminLookupsResponse();
-//		
-//		List<CountryDTO> countries  = lookupService.getAllCountries();
-//		List<AreaDTO> areas = lookupService.getAllAreas();
-//		List<BoxDTO> boxes = lookupService.getAllBoxes();
-//		List<CabinDTO> cabins = lookupService.getAllCabins();
-//		List<CityDTO> cities = lookupService.getAllCities();
-//		List<FeatureDTO> features = lookupService.getAllFeatures();
-//
-//		response.setLookupsCountries(countries);
-//		response.setLookupsAreas(areas);
-//		response.setLookupsBoxes(boxes);
-//		response.setLookupsCabins(cabins);
-//		response.setLookupsCities(cities);
-//		response.setLookupsFeatures(features);
-//		
-//		response.setStatus(STATUS.SUCCESS);
-//		return response;
-//	}
+	public AdminLookupsResponse getAdminLookupsResponse() {
+		AdminLookupsResponse response = new AdminLookupsResponse();
+		
+		List<CountryDTO> countries  = lookupService.getAllCountries();
+		List<AreaDTO> areas = lookupService.getAllAreas();
+		List<BoxDTO> boxes = lookupService.getAllBoxes();
+		List<CabinDTO> cabins = lookupService.getAllCabins();
+		List<CityDTO> cities = lookupService.getAllCities();
+		List<FeatureDTO> features = lookupService.getAllFeatures();
+		List<LandlinePhoneDTO> phones = lookupService.getAllLandlinePhones();
+
+		response.setCountries(countries);
+		response.setAreas(areas);
+		response.setBoxes(boxes);
+		response.setCabins(cabins);
+		response.setCities(cities);
+		response.setFeatures(features);
+		response.setLandlinePhones(phones);
+		
+		response.setStatus(STATUS.SUCCESS);
+		return response;
+	}
 	
 	@SuppressWarnings("unchecked")
 	public AdminLookupsResponse processCountries(AdminLookupsRequest request) {
 		AdminLookupsResponse response = new AdminLookupsResponse();
 		
-		List<CountryDTO> countries = request.getCountries();
+		List<CountryDTO> addedAndupdatedCountries = request.getCountries();
+		List<CountryDTO> deletedCountries = request.getDeletedCountries();
 		
-		lookupService.saveCountries((List<CountryDTO>) ModelDTO.filterUpdatesModels(countries));
-		lookupService.deleteCountries((List<CountryDTO>) ModelDTO.filterDeletesModels(countries));
+		addedAndupdatedCountries = lookupService.saveCountries(addedAndupdatedCountries);
+		lookupService.deleteCountries(deletedCountries);
 		
+		response.setCountries(addedAndupdatedCountries);
 		response.setStatus(STATUS.SUCCESS);
 		return response;
 	}

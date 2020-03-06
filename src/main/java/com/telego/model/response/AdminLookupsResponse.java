@@ -25,13 +25,13 @@ public class AdminLookupsResponse extends Response {
 
 	private STATUS status;
 
-	private List<CountryDTO> lookupsCountries;
-	private List<AreaDTO> lookupsAreas;
-	private List<BoxDTO> lookupsBoxes;
-	private List<CabinDTO> lookupsCabins;
-	private List<CityDTO> lookupsCities;
-	private List<FeatureDTO> lookupsFeatures;
-	private List<LandlinePhoneDTO> lookupsLandlinePhones;
-	private List<LogisticsDTO> lookupslogistics;
+	private List<CountryDTO> countries;
+	private List<AreaDTO> areas;
+	private List<BoxDTO> boxes;
+	private List<CabinDTO> cabins;
+	private List<CityDTO> cities;
+	private List<FeatureDTO> features;
+	private List<LandlinePhoneDTO> landlinePhones;
+	private List<LogisticsDTO> logistics;
 	
 }

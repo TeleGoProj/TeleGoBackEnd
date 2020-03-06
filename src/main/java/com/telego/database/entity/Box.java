@@ -39,8 +39,6 @@ public class Box {
 	@JoinColumn(name = "CABIN_ID", referencedColumnName = "CABIN_ID")
 	private Cabin cabinByCabinId;
 
-	
-	
 	@OneToMany(mappedBy = "boxByBoxId", cascade=CascadeType.ALL)
 	private List<LandlinePhone> landlinePhonesByBoxId;
 

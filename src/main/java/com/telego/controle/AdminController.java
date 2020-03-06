@@ -22,10 +22,40 @@ public class AdminController {
 	public AdminLookupsResponse getAdminLookups() {
 		return adminService.getAdminLookupsResponse();
 	}
-	
-	@PutMapping("/edit-lookups")
-	public AdminLookupsResponse saveAdminLookups(@RequestBody AdminLookupsRequest request) {
-		return adminService.updateAdminLookupsResponse(request);
+
+	@PutMapping("/process-countries")
+	public AdminLookupsResponse processCountries(@RequestBody AdminLookupsRequest request) {
+		return adminService.processCountries(request);
+	}
+
+	@PutMapping("/process-cities")
+	public AdminLookupsResponse processCities(@RequestBody AdminLookupsRequest request) {
+		return adminService.processCities(request);
+	}
+
+	@PutMapping("/process-areas")
+	public AdminLookupsResponse processAreas(@RequestBody AdminLookupsRequest request) {
+		return adminService.processAreas(request);
+	}
+
+	@PutMapping("/process-boxes")
+	public AdminLookupsResponse processBoxes(@RequestBody AdminLookupsRequest request) {
+		return adminService.processBoxes(request);
+	}
+
+	@PutMapping("/process-cabins")
+	public AdminLookupsResponse processCabins(@RequestBody AdminLookupsRequest request) {
+		return adminService.processCabins(request);
+	}
+
+	@PutMapping("/process-features")
+	public AdminLookupsResponse processFeatures(@RequestBody AdminLookupsRequest request) {
+		return adminService.processFeatures(request);
+	}
+
+	@PutMapping("/process-landline-phones")
+	public AdminLookupsResponse processLandlinePhones(@RequestBody AdminLookupsRequest request) {
+		return adminService.processLandlinePhones(request);
 	}
 
 }

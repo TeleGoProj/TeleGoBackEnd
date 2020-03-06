@@ -190,6 +190,12 @@ public class LookupService {
 		List<FeatureDTO> featuresDTOs = mapper.mapToFeaturesDTOs(featuresDatabase);
 		return featuresDTOs;
 	}
+	
+	public List<LandlinePhoneDTO> getAllLandlinePhones() {
+		List<LandlinePhone> phonesDatabase = landlinePhoneRepository.findAll();
+		List<LandlinePhoneDTO> phonesDTOs = mapper.mapToLandlinePhonesDTOs(phonesDatabase);
+		return phonesDTOs;
+	}
 
 	public List<FeatureDTO> saveFeatures(List<FeatureDTO> features) {
 		if (features == null)

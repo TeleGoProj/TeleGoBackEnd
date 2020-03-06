@@ -23,6 +23,7 @@ import lombok.NoArgsConstructor;
 public class AdminLookupsRequest extends Request{
 
 	private List<CountryDTO> countries;
+	private List<CountryDTO> deletedCountries;
 	private List<AreaDTO> areas;
 	private List<BoxDTO> boxes;
 	private List<CabinDTO> cabins;
