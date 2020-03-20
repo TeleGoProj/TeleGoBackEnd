@@ -29,3 +29,10 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### UML Diagrams ###
+classDiagram.ucls
+telego.di
+telego.notation
+telego.uml
+/uml_diagram

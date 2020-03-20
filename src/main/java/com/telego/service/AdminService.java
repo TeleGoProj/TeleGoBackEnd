@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.telego.model.AreaDTO;
 import com.telego.model.BoxDTO;
 import com.telego.model.CabinDTO;
@@ -42,11 +41,23 @@ public class AdminService {
 		response.setFeatures(features);
 		response.setLandlinePhones(phones);
 		
+		
 		response.setStatus(STATUS.SUCCESS);
 		return response;
 	}
 	
-	@SuppressWarnings("unchecked")
+	
+	public AdminLookupsResponse getCitiesByCountryId(Long id) {
+		AdminLookupsResponse response = new AdminLookupsResponse();
+		
+		List<CityDTO> citiesResult = lookupService.getCitiesByCountryId(id);
+		response.setCities(citiesResult);
+	      return response ;
+				  
+	}
+
+	
+	
 	public AdminLookupsResponse processCountries(AdminLookupsRequest request) {
 		AdminLookupsResponse response = new AdminLookupsResponse();
 		

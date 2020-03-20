@@ -2,6 +2,7 @@ package com.telego.controle;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +23,14 @@ public class AdminController {
 	public AdminLookupsResponse getAdminLookups() {
 		return adminService.getAdminLookupsResponse();
 	}
-
+	
+	@GetMapping("/get-cities-by-country-id/{id}")
+	public AdminLookupsResponse getCitiesByCountryId(@PathVariable("id") Long id) {
+			System.out.println("Will get the cities of country with id = " + id);
+			return adminService.getCitiesByCountryId(id);	
+			}
+	
+		
 	@PutMapping("/process-countries")
 	public AdminLookupsResponse processCountries(@RequestBody AdminLookupsRequest request) {
 		return adminService.processCountries(request);

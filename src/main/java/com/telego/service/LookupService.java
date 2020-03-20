@@ -31,6 +31,8 @@ import com.telego.util.EntityMapper;
 @Service
 public class LookupService {
 
+	
+
 	@Autowired
 	private CountryRepository countryRepository;
 
@@ -60,6 +62,14 @@ public class LookupService {
 		List<CountryDTO> countriesDTOs = mapper.mapToCountriesDTOs(countriesDatabase);
 		return countriesDTOs;
 	}
+	
+	public  List<CityDTO> getCitiesByCountryId(Long id) {
+		List<City> citiesDatabase = cityRepository.getCitiesByCountryId(id);
+		List<CityDTO> citiesDTOs = mapper.mapToCitiesDTOs(citiesDatabase);
+		return citiesDTOs;
+	}
+	
+	
 
 	public List<CountryDTO> saveCountries(List<CountryDTO> countries) {
 		if (countries == null)
@@ -234,5 +244,7 @@ public class LookupService {
 		List<LandlinePhone> phonesEntities = mapper.mapToLandlinePhonesEntities(phones);
 		landlinePhoneRepository.deleteAll(phonesEntities);
 	}
+
+	
 
 }
