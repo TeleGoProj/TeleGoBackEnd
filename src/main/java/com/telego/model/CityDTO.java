@@ -19,7 +19,6 @@ public class CityDTO extends ModelDTO {
 	private boolean markedAsDeleted;
 	
 	private List<AreaDTO>areas;
-	private List<CabinDTO>cabins;
-	private List<CountryDTO>countries;
+	private CountryDTO country;
 	
 }

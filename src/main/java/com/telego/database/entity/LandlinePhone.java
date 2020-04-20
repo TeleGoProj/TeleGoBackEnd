@@ -18,19 +18,19 @@ public class LandlinePhone {
 	@Id
 	@Column(name = "LANDLINE_PHONE_ID")
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "landLinePhoneGenerator")
-	@SequenceGenerator(name="landLinePhoneGenerator", sequenceName="landline_phone_sequence" , initialValue=1000, allocationSize=1)
+	@SequenceGenerator(name = "landLinePhoneGenerator", sequenceName = "landline_phone_sequence", initialValue = 1000, allocationSize = 1)
 	private Long landlinePhoneId;
 
 	@Column(name = "PHONE_NUMBER")
 	private Long phoneNumber;
 
-	@ManyToOne(cascade=CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "USER_ID", referencedColumnName = "USER_ID")
-	private PhoneUser phoneUserByUserId;
+	private PhoneUser phoneUser;
 
-	@ManyToOne(cascade=CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "BOX_ID", referencedColumnName = "BOX_ID")
-	private Box boxByBoxId;
+	private Box box;
 
 	public Long getLandlinePhoneId() {
 		return landlinePhoneId;
@@ -48,20 +48,20 @@ public class LandlinePhone {
 		this.phoneNumber = phoneNumber;
 	}
 
-	public PhoneUser getPhoneUserByUserId() {
-		return phoneUserByUserId;
+	public PhoneUser getPhoneUser() {
+		return phoneUser;
 	}
 
-	public void setPhoneUserByUserId(PhoneUser phoneUserByUserId) {
-		this.phoneUserByUserId = phoneUserByUserId;
+	public void setPhoneUser(PhoneUser phoneUser) {
+		this.phoneUser = phoneUser;
 	}
 
-	public Box getBoxByBoxId() {
-		return boxByBoxId;
+	public Box getBox() {
+		return box;
 	}
 
-	public void setBoxByBoxId(Box boxByBoxId) {
-		this.boxByBoxId = boxByBoxId;
+	public void setBox(Box box) {
+		this.box = box;
 	}
 
 }

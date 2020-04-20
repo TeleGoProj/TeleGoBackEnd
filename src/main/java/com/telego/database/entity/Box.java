@@ -1,8 +1,5 @@
 package com.telego.database.entity;
 
-
-import java.util.List;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,7 +8,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
 @Entity
@@ -20,7 +16,7 @@ public class Box {
 	@Id
 	@Column(name = "BOX_ID")
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "boxGenerator")
-	@SequenceGenerator(name="boxGenerator", sequenceName="box_sequence" , initialValue=1000, allocationSize=1)
+	@SequenceGenerator(name = "boxGenerator", sequenceName = "box_sequence", initialValue = 1000, allocationSize = 1)
 	private Long boxId;
 
 	@Column(name = "BOX_NAME")
@@ -35,12 +31,9 @@ public class Box {
 	@Column(name = "STREET_NAME")
 	private String streetName;
 
-	@ManyToOne(cascade=CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "CABIN_ID", referencedColumnName = "CABIN_ID")
-	private Cabin cabinByCabinId;
-
-	@OneToMany(mappedBy = "boxByBoxId", cascade=CascadeType.ALL)
-	private List<LandlinePhone> landlinePhonesByBoxId;
+	private Cabin cabin;
 
 	public Long getBoxId() {
 		return boxId;
@@ -82,20 +75,12 @@ public class Box {
 		this.streetName = streetName;
 	}
 
-	public Cabin getCabinByCabinId() {
-		return cabinByCabinId;
+	public Cabin getCabin() {
+		return cabin;
 	}
 
-	public void setCabinByCabinId(Cabin cabinByCabinId) {
-		this.cabinByCabinId = cabinByCabinId;
-	}
-
-	public List<LandlinePhone> getLandlinePhonesByBoxId() {
-		return landlinePhonesByBoxId;
-	}
-
-	public void setLandlinePhonesByBoxId(List<LandlinePhone> landlinePhonesByBoxId) {
-		this.landlinePhonesByBoxId = landlinePhonesByBoxId;
+	public void setCabin(Cabin cabin) {
+		this.cabin = cabin;
 	}
 
 }

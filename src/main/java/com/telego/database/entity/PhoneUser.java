@@ -20,7 +20,7 @@ public class PhoneUser {
 	@Id
 	@Column(name = "USER_ID")
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "phoneUserGenerator")
-	@SequenceGenerator(name="phoneUserGenerator", sequenceName="phone_user_sequence" , initialValue=1000, allocationSize=1)
+	@SequenceGenerator(name = "phoneUserGenerator", sequenceName = "phone_user_sequence", initialValue = 1000, allocationSize = 1)
 	private Long userId;
 
 	@Column(name = "LOGIN_NAME")
@@ -65,17 +65,17 @@ public class PhoneUser {
 	@Column(name = "USER_TYPE")
 	private Long userType;
 
-	@OneToMany(mappedBy = "phoneUserByUserId", cascade=CascadeType.ALL)
+	@OneToMany(mappedBy = "phoneUser", cascade = CascadeType.ALL)
 	private Collection<LandlinePhone> landlinePhonesByUserId;
 
-	@OneToMany(mappedBy = "phoneUserByRequesterUserId", cascade=CascadeType.ALL)
+	@OneToMany(mappedBy = "phoneUserByRequester", cascade = CascadeType.ALL)
 	private Collection<Logistics> logisticsByUserId;
 
-	@OneToMany(mappedBy = "phoneUserByDeliveryToUserId", cascade=CascadeType.ALL)
-	private Collection<Logistics> logisticsByUserId_0;
+	@OneToMany(mappedBy = "phoneUserByDeliveryToUser", cascade = CascadeType.ALL)
+	private Collection<Logistics> logistics;
 
-	@OneToMany(mappedBy = "phoneUserByUserId", cascade=CascadeType.ALL)
-	private Collection<UserFeature> userFeaturesByUserId;
+	@OneToMany(mappedBy = "phoneUserByUser", cascade = CascadeType.ALL)
+	private Collection<UserFeature> userFeatures;
 
 	public Long getUserId() {
 		return userId;
@@ -213,20 +213,20 @@ public class PhoneUser {
 		this.logisticsByUserId = logisticsByUserId;
 	}
 
-	public Collection<Logistics> getLogisticsByUserId_0() {
-		return logisticsByUserId_0;
+	public Collection<Logistics> getLogistics() {
+		return logistics;
 	}
 
-	public void setLogisticsByUserId_0(Collection<Logistics> logisticsByUserId_0) {
-		this.logisticsByUserId_0 = logisticsByUserId_0;
+	public void setLogistics(Collection<Logistics> logistics) {
+		this.logistics = logistics;
 	}
 
-	public Collection<UserFeature> getUserFeaturesByUserId() {
-		return userFeaturesByUserId;
+	public Collection<UserFeature> getUserFeatures() {
+		return userFeatures;
 	}
 
-	public void setUserFeaturesByUserId(Collection<UserFeature> userFeaturesByUserId) {
-		this.userFeaturesByUserId = userFeaturesByUserId;
+	public void setUserFeatures(Collection<UserFeature> userFeatures) {
+		this.userFeatures = userFeatures;
 	}
 
 }

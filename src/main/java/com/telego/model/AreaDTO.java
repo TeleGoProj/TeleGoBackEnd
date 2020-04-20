@@ -15,7 +15,7 @@ public class AreaDTO extends ModelDTO{
 	private Long areaId;
 	private String areaNameEn;
 	private String areaNameAr;
+	
 	private CityDTO cityDTO;
-	private List<BoxDTO> boxes;
-	private List<LogisticsDTO> logistics;
+	private List<CabinDTO> cabins;
 }

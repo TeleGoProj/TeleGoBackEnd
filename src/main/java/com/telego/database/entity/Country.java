@@ -1,6 +1,5 @@
 package com.telego.database.entity;
 
-
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -18,7 +17,7 @@ public class Country {
 	@Id
 	@Column(name = "COUNTRY_ID")
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "countryGenerator")
-	@SequenceGenerator(name="countryGenerator", sequenceName="country_sequence" , initialValue=1000, allocationSize=1)
+	@SequenceGenerator(name = "countryGenerator", sequenceName = "country_sequence", initialValue = 1000, allocationSize = 1)
 	private Long countryId;
 
 	@Column(name = "NAME_EN")
@@ -30,8 +29,8 @@ public class Country {
 	@Column(name = "CODE")
 	private String code;
 
-	@OneToMany(mappedBy = "countryByCountryId", cascade=CascadeType.ALL)
-	private List<City> citiesByCountryId;
+	@OneToMany(mappedBy = "country", cascade = CascadeType.ALL)
+	private List<City> cities;
 
 	public Long getCountryId() {
 		return countryId;
@@ -65,12 +64,12 @@ public class Country {
 		this.code = code;
 	}
 
-	public List<City> getCitiesByCountryId() {
-		return citiesByCountryId;
+	public List<City> getCities() {
+		return cities;
 	}
 
-	public void setCitiesByCountryId(List<City> citiesByCountryId) {
-		this.citiesByCountryId = citiesByCountryId;
+	public void setCities(List<City> cities) {
+		this.cities = cities;
 	}
 
 }

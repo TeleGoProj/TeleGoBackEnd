@@ -50,7 +50,13 @@ public class AdminService {
 	public AdminLookupsResponse getCitiesByCountryId(Long id) {
 		AdminLookupsResponse response = new AdminLookupsResponse();
 		
-		List<CityDTO> citiesResult = lookupService.getCitiesByCountryId(id);
+		List<CityDTO> citiesResult = null;
+		
+		if(id == null)
+			citiesResult = lookupService.getAllCities();
+		else
+			citiesResult = lookupService.getCitiesByCountryId(id);
+		
 		response.setCities(citiesResult);
 	      return response ;
 				  

@@ -31,15 +31,12 @@ public class City {
 	@Column(name = "CODE")
 	private String code;
 
-	@OneToMany(mappedBy = "cityByCityId", cascade=CascadeType.ALL)
-	private List<Area> areasByCityId;
-
-	@OneToMany(mappedBy = "cityByCityId", cascade=CascadeType.ALL)
-	private List<Cabin> cabinsByCityId;
+	@OneToMany(mappedBy = "city", cascade=CascadeType.ALL)
+	private List<Area> areas;
 
 	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "COUNTRY_ID", referencedColumnName = "COUNTRY_ID", nullable = false)
-	private Country countryByCountryId;
+	private Country country;
 
 	public Long getCityId() {
 		return cityId;
@@ -73,28 +70,19 @@ public class City {
 		this.code = code;
 	}
 
-	public List<Area> getAreasByCityId() {
-		return areasByCityId;
+	public List<Area> getAreas() {
+		return areas;
 	}
 
-	public void setAreasByCityId(List<Area> areasByCityId) {
-		this.areasByCityId = areasByCityId;
+	public void setAreas(List<Area> areas) {
+		this.areas = areas;
 	}
 
-	public List<Cabin> getCabinsByCityId() {
-		return cabinsByCityId;
+	public Country getCountry() {
+		return country;
 	}
 
-	public void setCabinsByCityId(List<Cabin> cabinsByCityId) {
-		this.cabinsByCityId = cabinsByCityId;
+	public void setCountry(Country country) {
+		this.country = country;
 	}
-
-	public Country getCountryByCountryId() {
-		return countryByCountryId;
-	}
-
-	public void setCountryByCountryId(Country countryByCountryId) {
-		this.countryByCountryId = countryByCountryId;
-	}
-
 }

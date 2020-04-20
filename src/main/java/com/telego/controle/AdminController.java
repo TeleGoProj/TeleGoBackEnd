@@ -26,9 +26,8 @@ public class AdminController {
 	
 	@GetMapping("/get-cities-by-country-id/{id}")
 	public AdminLookupsResponse getCitiesByCountryId(@PathVariable("id") Long id) {
-			System.out.println("Will get the cities of country with id = " + id);
-			return adminService.getCitiesByCountryId(id);	
-			}
+		return adminService.getCitiesByCountryId(id);	
+	}
 	
 		
 	@PutMapping("/process-countries")

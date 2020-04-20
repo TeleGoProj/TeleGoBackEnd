@@ -38,9 +38,9 @@ public class EntityMapper {
 		dto.setNameAr(entity.getNameAr());
 		dto.setCode(entity.getCode());
 		
-		List<City> cities = entity.getCitiesByCountryId(); 
-		List<CityDTO> citiesDTOs = mapToCitiesDTOs(cities);
-		dto.setCities(citiesDTOs);
+//		List<City> cities = entity.getCities();
+//		List<CityDTO> citiesDTOs = mapToCitiesDTOs(cities);
+//		dto.setCities(citiesDTOs);
 
 		return dto;
 	}
@@ -53,6 +53,15 @@ public class EntityMapper {
 		dto.setAreaId(entity.getAreaId());
 		dto.setAreaNameEn(entity.getAreaNameEn());
 		dto.setAreaNameAr(entity.getAreaNameAr());
+		
+		City city = entity.getCity();
+		CityDTO cityDto = mapToCityDTO(city);
+		
+//		List<Cabin> cabins = entity.getCabins();
+//		List<CabinDTO> cabinDtos = mapToCabinsDTOs(cabins);
+		
+		dto.setCityDTO(cityDto);
+//		dto.setCabins(cabinDtos);
 
 		return dto;
 	}
@@ -67,6 +76,11 @@ public class EntityMapper {
 		dto.setLongitude(entity.getLongitude());
 		dto.setLatitude(entity.getLatitude());
 		dto.setStreetName(entity.getStreetName());
+		
+		Cabin cabin = entity.getCabin();
+		CabinDTO cabinDto = mapToCabinDTO(cabin);
+		
+		dto.setCabin(cabinDto);
 
 		return dto;
 	}
@@ -78,6 +92,16 @@ public class EntityMapper {
 		CabinDTO dto = new CabinDTO();
 		dto.setCabinId(entity.getCabinId());
 		dto.setCabinName(entity.getCabinName());
+		
+		Area area = entity.getArea();
+		AreaDTO areaDto = mapToAreaDTO(area);
+		
+//		List<Box> boxes = entity.getBoxes();
+//		List<BoxDTO> boxesDtos = mapToBoxesDTOs(boxes);
+		
+		dto.setAreaDto(areaDto);
+//		dto.setBoxes(boxesDtos);
+		
 		return dto;
 	}
 	
@@ -89,6 +113,16 @@ public class EntityMapper {
 		dto.setCityId(entity.getCityId());
 		dto.setNameEn(entity.getNameEn());
 		dto.setNameAr(entity.getNameAr());
+		dto.setCode(entity.getCode());
+		
+		Country country = entity.getCountry();
+		CountryDTO countryDto = mapToCountryDTO(country);
+		
+//		List<Area> areas = entity.getAreas();
+//		List<AreaDTO> areaDtos = mapToAreasDTOs(areas);
+		
+		dto.setCountry(countryDto);
+//		dto.setAreas(areaDtos);
 
 		return dto;
 	}

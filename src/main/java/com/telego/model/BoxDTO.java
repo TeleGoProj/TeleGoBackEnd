@@ -19,8 +19,7 @@ public class BoxDTO extends ModelDTO{
 	private String streetName;
 	private boolean markedAsDeleted;
 	
-	
-	private List<CabinDTO>cabins;
+	private CabinDTO cabin;
 	private List<LandlinePhoneDTO>landlinePhones;
 }
 

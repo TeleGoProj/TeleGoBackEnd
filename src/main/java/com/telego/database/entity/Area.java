@@ -1,6 +1,5 @@
 package com.telego.database.entity;
 
-
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -20,7 +19,7 @@ public class Area {
 	@Id
 	@Column(name = "AREA_ID")
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "areaGenerator")
-	@SequenceGenerator(name="areaGenerator", sequenceName="area_sequence" , initialValue=1000, allocationSize=1)
+	@SequenceGenerator(name = "areaGenerator", sequenceName = "area_sequence", initialValue = 1000, allocationSize = 1)
 	private Long areaId;
 
 	@Column(name = "AREA_NAME_EN")
@@ -29,13 +28,13 @@ public class Area {
 	@Column(name = "AREA_NAME_AR")
 	private String areaNameAr;
 
-	@ManyToOne(cascade=CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "CITY_ID", referencedColumnName = "CITY_ID")
-	private City cityByCityId;
+	private City city;
 
-	@OneToMany(mappedBy = "areaByDeliveryToAreaId", cascade=CascadeType.ALL)
-	private List<Logistics> logisticsByAreaId;
-
+	@OneToMany(mappedBy = "cabinId", cascade = CascadeType.ALL)
+	private List<Cabin> cabins;
+	
 	public Long getAreaId() {
 		return areaId;
 	}
@@ -60,20 +59,20 @@ public class Area {
 		this.areaNameAr = areaNameAr;
 	}
 
-	public City getCityByCityId() {
-		return cityByCityId;
+	public City getCity() {
+		return city;
 	}
 
-	public void setCityByCityId(City cityByCityId) {
-		this.cityByCityId = cityByCityId;
+	public void setCity(City city) {
+		this.city = city;
 	}
 
-	public List<Logistics> getLogisticsByAreaId() {
-		return logisticsByAreaId;
+	public List<Cabin> getCabins() {
+		return cabins;
 	}
-
-	public void setLogisticsByAreaId(List<Logistics> logisticsByAreaId) {
-		this.logisticsByAreaId = logisticsByAreaId;
+	
+	public void setCabins(List<Cabin> cabins) {
+		this.cabins = cabins;
 	}
 
 }

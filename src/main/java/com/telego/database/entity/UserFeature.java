@@ -23,7 +23,7 @@ public class UserFeature {
 
 	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "USER_ID", referencedColumnName = "USER_ID")
-	private PhoneUser phoneUserByUserId;
+	private PhoneUser phoneUserByUser;
 
 	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "FEATURE_ID", referencedColumnName = "FEATURE_ID")
@@ -37,12 +37,12 @@ public class UserFeature {
 		this.userFeatureId = userFeatureId;
 	}
 
-	public PhoneUser getPhoneUserByUserId() {
-		return phoneUserByUserId;
+	public PhoneUser getPhoneUserByUser() {
+		return phoneUserByUser;
 	}
-
-	public void setPhoneUserByUserId(PhoneUser phoneUserByUserId) {
-		this.phoneUserByUserId = phoneUserByUserId;
+	
+	public void setPhoneUserByUser(PhoneUser phoneUserByUser) {
+		this.phoneUserByUser = phoneUserByUser;
 	}
 
 	public Feature getFeatureByFeatureId() {

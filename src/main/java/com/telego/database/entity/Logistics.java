@@ -18,7 +18,7 @@ public class Logistics {
 	@Id
 	@Column(name = "LOGISTICS_ID")
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "logisticteGenerator")
-	@SequenceGenerator(name="logisticteGenerator", sequenceName="logistict_sequence" , initialValue=1000, allocationSize=1)
+	@SequenceGenerator(name = "logisticteGenerator", sequenceName = "logistict_sequence", initialValue = 1000, allocationSize = 1)
 	private Long logisticsId;
 
 	@Column(name = "DELIVERY_TO_STREET")
@@ -36,17 +36,17 @@ public class Logistics {
 	@Column(name = "GOODS_DESCRIPTION")
 	private String goodsDescription;
 
-	@ManyToOne(cascade=CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "REQUESTER_USER_ID", referencedColumnName = "USER_ID")
-	private PhoneUser phoneUserByRequesterUserId;
+	private PhoneUser phoneUserByRequester;
 
-	@ManyToOne(cascade=CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "DELIVERY_TO_USER_ID", referencedColumnName = "USER_ID")
-	private PhoneUser phoneUserByDeliveryToUserId;
+	private PhoneUser phoneUserByDeliveryToUser;
 
-	@ManyToOne(cascade=CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "DELIVERY_TO_AREA_ID", referencedColumnName = "AREA_ID")
-	private Area areaByDeliveryToAreaId;
+	private Area areaByDeliveryTo;
 
 	public Long getLogisticsId() {
 		return logisticsId;
@@ -96,28 +96,28 @@ public class Logistics {
 		this.goodsDescription = goodsDescription;
 	}
 
-	public PhoneUser getPhoneUserByRequesterUserId() {
-		return phoneUserByRequesterUserId;
+	public PhoneUser getPhoneUserByRequester() {
+		return phoneUserByRequester;
 	}
 
-	public void setPhoneUserByRequesterUserId(PhoneUser phoneUserByRequesterUserId) {
-		this.phoneUserByRequesterUserId = phoneUserByRequesterUserId;
+	public void setPhoneUserByRequester(PhoneUser phoneUserByRequester) {
+		this.phoneUserByRequester = phoneUserByRequester;
 	}
 
-	public PhoneUser getPhoneUserByDeliveryToUserId() {
-		return phoneUserByDeliveryToUserId;
+	public PhoneUser getPhoneUserByDeliveryToUser() {
+		return phoneUserByDeliveryToUser;
 	}
 
-	public void setPhoneUserByDeliveryToUserId(PhoneUser phoneUserByDeliveryToUserId) {
-		this.phoneUserByDeliveryToUserId = phoneUserByDeliveryToUserId;
+	public void setPhoneUserByDeliveryToUser(PhoneUser phoneUserByDeliveryToUser) {
+		this.phoneUserByDeliveryToUser = phoneUserByDeliveryToUser;
 	}
 
-	public Area getAreaByDeliveryToAreaId() {
-		return areaByDeliveryToAreaId;
+	public Area getAreaByDeliveryTo() {
+		return areaByDeliveryTo;
 	}
 
-	public void setAreaByDeliveryToAreaId(Area areaByDeliveryToAreaId) {
-		this.areaByDeliveryToAreaId = areaByDeliveryToAreaId;
+	public void setAreaByDeliveryTo(Area areaByDeliveryTo) {
+		this.areaByDeliveryTo = areaByDeliveryTo;
 	}
 
 }
