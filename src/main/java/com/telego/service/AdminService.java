@@ -59,7 +59,6 @@ public class AdminService {
 		
 		response.setCities(citiesResult);
 	      return response ;
-				  
 	}
 
 	
@@ -82,11 +81,14 @@ public class AdminService {
 	public AdminLookupsResponse processCities(AdminLookupsRequest request) {
 		AdminLookupsResponse response = new AdminLookupsResponse();
 		
-		List<CityDTO> cities = request.getCities();
+		List<CityDTO> updatedCities = request.getCities();
+		List<CityDTO> deletedCities = request.getDeletedCities();
 		
-		lookupService.saveCities((List<CityDTO>) ModelDTO.filterUpdatesModels(cities));
-		lookupService.deleteCities((List<CityDTO>) ModelDTO.filterDeletesModels(cities));
+		List<CityDTO> updatedCitiesDtos = 
+				lookupService.saveCities((List<CityDTO>) ModelDTO.filterUpdatesModels(updatedCities));
+		lookupService.deleteCities((List<CityDTO>) ModelDTO.filterDeletesModels(deletedCities));
 		
+		response.setCities(updatedCitiesDtos);
 		response.setStatus(STATUS.SUCCESS);
 		return response;
 	}

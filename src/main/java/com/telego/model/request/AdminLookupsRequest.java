@@ -24,10 +24,13 @@ public class AdminLookupsRequest extends Request{
 
 	private List<CountryDTO> countries;
 	private List<CountryDTO> deletedCountries;
+	
+	private List<CityDTO> cities;
+	private List<CityDTO> deletedCities;
+	
 	private List<AreaDTO> areas;
 	private List<BoxDTO> boxes;
 	private List<CabinDTO> cabins;
-	private List<CityDTO> cities;
 	private List<FeatureDTO> features;
 	private List<LandlinePhoneDTO> landlinePhones;
 	private List<LogisticsDTO> logistics;

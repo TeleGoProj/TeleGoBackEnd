@@ -248,7 +248,8 @@ public class EntityMapper {
 		entity.setCityId(dto.getCityId());
 		entity.setNameEn(dto.getNameEn());
 		entity.setNameAr(dto.getNameAr());
-
+		
+		entity.setCountry(mapToCountryEntity(dto.getCountry()));
 		return entity;
 	}
 	

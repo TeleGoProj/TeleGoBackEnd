@@ -64,7 +64,15 @@ public class LookupService {
 	}
 	
 	public  List<CityDTO> getCitiesByCountryId(Long id) {
-		List<City> citiesDatabase = cityRepository.getCitiesByCountryId(id);
+		List<City> citiesDatabase = null;
+
+		if(id == null || id == 0) {
+			citiesDatabase = cityRepository.findAll();
+		}
+		else {
+			citiesDatabase = cityRepository.getCitiesByCountryId(id);
+		}
+
 		List<CityDTO> citiesDTOs = mapper.mapToCitiesDTOs(citiesDatabase);
 		return citiesDTOs;
 	}
@@ -180,6 +188,12 @@ public class LookupService {
 			return null;
 
 		List<City> citiesEntities = mapper.mapToCitiesEntities(cities);
+		
+		Long countryId = citiesEntities.get(0).getCountry().getCountryId();
+		Country country = countryRepository.findById(countryId).get();
+		
+		citiesEntities.forEach(c -> c.setCountry(country));
+		
 		citiesEntities = cityRepository.saveAll(citiesEntities);
 		cityRepository.flush();
 		cities = mapper.mapToCitiesDTOs(citiesEntities);
@@ -187,7 +201,7 @@ public class LookupService {
 	}
 
 	public void deleteCities(List<CityDTO> cities) {
-		if (cities == null)
+		if (cities == null || cities.isEmpty())
 			return;
 
 		List<City> citiesEntities = mapper.mapToCitiesEntities(cities);
