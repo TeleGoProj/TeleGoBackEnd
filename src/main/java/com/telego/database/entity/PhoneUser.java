@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -47,8 +48,9 @@ public class PhoneUser {
 	@Column(name = "EMAIL")
 	private String email;
 
-	@Column(name = "IMAGE_PATH")
-	private String imagePath;
+	@Lob
+	@Column(name = "IMAGE")
+	private byte[] image;
 
 	@Column(name = "ADDRESS")
 	private String address;
@@ -149,12 +151,12 @@ public class PhoneUser {
 		this.email = email;
 	}
 
-	public String getImagePath() {
-		return imagePath;
+	public byte[] getImage() {
+		return image;
 	}
-
-	public void setImagePath(String imagePath) {
-		this.imagePath = imagePath;
+	
+	public void setImage(byte[] image) {
+		this.image = image;
 	}
 
 	public String getAddress() {

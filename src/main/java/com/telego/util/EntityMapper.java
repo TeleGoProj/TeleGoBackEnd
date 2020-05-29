@@ -180,7 +180,7 @@ public class EntityMapper {
 		dto.setLName(entity.getlName());
 		dto.setOrganizationType(entity.getOrganizationType());
 		dto.setEmail(entity.getEmail());
-		dto.setImagePath(entity.getImagePath());
+		dto.setImage(entity.getImage());
 		dto.setAddress(entity.getAddress());
 		dto.setMobilePhone(entity.getMobilePhone());
 		dto.setOrganizationName(entity.getOrganizationName());
@@ -306,7 +306,7 @@ public class EntityMapper {
 		entity.setlName(dto.getLName());
 		entity.setOrganizationType(dto.getOrganizationType());
 		entity.setEmail(dto.getEmail());
-		entity.setImagePath(dto.getImagePath());
+		entity.setImage(dto.getImage());
 		entity.setAddress(dto.getAddress());
 		entity.setMobilePhone(dto.getMobilePhone());
 		entity.setOrganizationName(dto.getOrganizationName());

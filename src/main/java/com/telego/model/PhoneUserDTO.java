@@ -22,7 +22,7 @@ public class PhoneUserDTO extends ModelDTO{
 	private String lName;
 	private Long organizationType;
 	private String email;
-	private String imagePath;
+	private byte[] image;
 	private String address;
 	private String mobilePhone;
 	private String organizationName;
