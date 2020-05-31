@@ -37,10 +37,8 @@ public class EntityMapper {
 		dto.setNameEn(entity.getNameEn());
 		dto.setNameAr(entity.getNameAr());
 		dto.setCode(entity.getCode());
-		
-//		List<City> cities = entity.getCities();
-//		List<CityDTO> citiesDTOs = mapToCitiesDTOs(cities);
-//		dto.setCities(citiesDTOs);
+		dto.setPhoneCode(entity.getPhoneCode());
+		dto.setUiStyle(entity.getUiStyle());
 
 		return dto;
 	}
@@ -200,6 +198,8 @@ public class EntityMapper {
 		entity.setNameEn(dto.getNameEn());
 		entity.setNameAr(dto.getNameAr());
 		entity.setCode(dto.getCode());
+		entity.setPhoneCode(dto.getPhoneCode());
+		entity.setUiStyle(dto.getUiStyle());
 		
 		return entity;
 	}

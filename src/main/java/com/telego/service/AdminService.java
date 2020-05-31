@@ -157,4 +157,8 @@ public class AdminService {
 		response.setStatus(STATUS.SUCCESS);
 		return response;
 	}
+	
+	public List<CountryDTO> getAllCountries(){
+		return lookupService.getAllCountries();
+	}
 }

@@ -1,5 +1,6 @@
 package com.telego.model.request;
 
+import com.telego.model.CountryDTO;
 import com.telego.model.PhoneUserDTO;
 
 import lombok.AllArgsConstructor;
@@ -12,5 +13,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper=true)
 public class ProfileRequest extends Request{
-	PhoneUserDTO user;
+	private PhoneUserDTO user;
+	private CountryDTO phoneCountry;
+	private String cityCode;
 }

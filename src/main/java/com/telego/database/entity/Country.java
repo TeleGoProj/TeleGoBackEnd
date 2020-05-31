@@ -28,6 +28,12 @@ public class Country {
 
 	@Column(name = "CODE")
 	private String code;
+	
+	@Column(name = "PHONE_CODE")
+	private String phoneCode;
+	
+	@Column(name = "UI_STYLE")
+	private String uiStyle;
 
 	@OneToMany(mappedBy = "country", cascade = CascadeType.ALL)
 	private List<City> cities;
@@ -72,4 +78,20 @@ public class Country {
 		this.cities = cities;
 	}
 
+	public String getPhoneCode() {
+		return phoneCode;
+	}
+
+	public void setPhoneCode(String phoneCode) {
+		this.phoneCode = phoneCode;
+	}
+
+	public String getUiStyle() {
+		return uiStyle;
+	}
+
+	public void setUiStyle(String uiStyle) {
+		this.uiStyle = uiStyle;
+	}
+	
 }

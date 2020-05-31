@@ -9,8 +9,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -67,8 +69,9 @@ public class PhoneUser {
 	@Column(name = "USER_TYPE")
 	private Long userType;
 
-	@OneToMany(mappedBy = "phoneUser", cascade = CascadeType.ALL)
-	private Collection<LandlinePhone> landlinePhonesByUserId;
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "LANDLINE_PHONE_ID", referencedColumnName = "LANDLINE_PHONE_ID")
+	private LandlinePhone landlinePhone;
 
 	@OneToMany(mappedBy = "phoneUserByRequester", cascade = CascadeType.ALL)
 	private Collection<Logistics> logisticsByUserId;
@@ -199,12 +202,12 @@ public class PhoneUser {
 		this.userType = userType;
 	}
 
-	public Collection<LandlinePhone> getLandlinePhonesByUserId() {
-		return landlinePhonesByUserId;
+	public LandlinePhone getLandlinePhone() {
+		return landlinePhone;
 	}
 
-	public void setLandlinePhonesByUserId(Collection<LandlinePhone> landlinePhonesByUserId) {
-		this.landlinePhonesByUserId = landlinePhonesByUserId;
+	public void setLandlinePhone(LandlinePhone landlinePhone) {
+		this.landlinePhone = landlinePhone;
 	}
 
 	public Collection<Logistics> getLogisticsByUserId() {

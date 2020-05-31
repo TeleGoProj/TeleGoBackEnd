@@ -29,7 +29,7 @@ public class PhoneUserDTO extends ModelDTO{
 	private Long userStatus;
 	private Long userType;
 	
-	private List<LandlinePhoneDTO> landLinePhones;
+	private LandlinePhoneDTO landLinePhone;
 	private List<LogisticsDTO> requestedlogistics;
 	private List<LogisticsDTO> deliveredLogistics;
 }

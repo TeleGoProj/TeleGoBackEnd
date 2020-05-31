@@ -20,6 +20,8 @@ public class CountryDTO extends ModelDTO{
 	private String nameEn;
 	private String nameAr;
 	private String code;
+	private String phoneCode;
+	private String uiStyle;
 	private boolean markedAsDeleted;
 	
 	private List<CityDTO> cities;
