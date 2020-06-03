@@ -16,6 +16,6 @@ public class AreaDTO extends ModelDTO{
 	private String areaNameEn;
 	private String areaNameAr;
 	
-	private CityDTO cityDTO;
+	private CityDTO city;
 	private List<CabinDTO> cabins;
 }

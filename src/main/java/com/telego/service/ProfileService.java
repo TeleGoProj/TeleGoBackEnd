@@ -10,6 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.telego.database.entity.PhoneUser;
 import com.telego.database.rep.PhoneUserRepository;
 import com.telego.model.CountryDTO;
+import com.telego.model.FeatureDTO;
 import com.telego.model.PhoneUserDTO;
 import com.telego.model.request.ProfileRequest;
 import com.telego.model.response.ProfileResponse;
@@ -22,7 +23,7 @@ public class ProfileService {
 	private PhoneUserRepository phoneUserRepository;
 	
 	@Autowired
-	private AdminService adminService;
+	private LookupService lookupService;
 	
 	@Autowired
 	private EntityMapper mapper;
@@ -64,6 +65,10 @@ public class ProfileService {
 	}
 	
 	public List<CountryDTO> getAllCountries(){
-		return adminService.getAllCountries();
+		return lookupService.getAllCountries();
+	}
+	
+	public List<FeatureDTO> getAllFeatures(){
+		return lookupService.getAllFeatures();
 	}
 }

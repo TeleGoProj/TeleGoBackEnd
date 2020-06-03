@@ -30,6 +30,9 @@ public class City {
 
 	@Column(name = "CODE")
 	private String code;
+	
+	@Column(name = "PHONE_CODE")
+	private String phoneCode;
 
 	@OneToMany(mappedBy = "city", cascade=CascadeType.ALL)
 	private List<Area> areas;
@@ -84,5 +87,13 @@ public class City {
 
 	public void setCountry(Country country) {
 		this.country = country;
+	}
+
+	public String getPhoneCode() {
+		return phoneCode;
+	}
+
+	public void setPhoneCode(String phoneCode) {
+		this.phoneCode = phoneCode;
 	}
 }

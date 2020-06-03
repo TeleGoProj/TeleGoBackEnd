@@ -17,9 +17,9 @@ public class PhoneUserDTO extends ModelDTO{
 	private String loginName;
 	private String loginPassword;
 	private Time creationDate;
-	private String fName;
-	private String mName;
-	private String lName;
+	private String firstName;
+	private String middleName;
+	private String lastName;
 	private Long organizationType;
 	private String email;
 	private byte[] image;

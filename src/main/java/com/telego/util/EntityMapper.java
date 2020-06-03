@@ -55,11 +55,7 @@ public class EntityMapper {
 		City city = entity.getCity();
 		CityDTO cityDto = mapToCityDTO(city);
 		
-//		List<Cabin> cabins = entity.getCabins();
-//		List<CabinDTO> cabinDtos = mapToCabinsDTOs(cabins);
-		
-		dto.setCityDTO(cityDto);
-//		dto.setCabins(cabinDtos);
+		dto.setCity(cityDto);
 
 		return dto;
 	}
@@ -94,11 +90,7 @@ public class EntityMapper {
 		Area area = entity.getArea();
 		AreaDTO areaDto = mapToAreaDTO(area);
 		
-//		List<Box> boxes = entity.getBoxes();
-//		List<BoxDTO> boxesDtos = mapToBoxesDTOs(boxes);
-		
-		dto.setAreaDto(areaDto);
-//		dto.setBoxes(boxesDtos);
+		dto.setArea(areaDto);
 		
 		return dto;
 	}
@@ -112,15 +104,12 @@ public class EntityMapper {
 		dto.setNameEn(entity.getNameEn());
 		dto.setNameAr(entity.getNameAr());
 		dto.setCode(entity.getCode());
+		dto.setPhoneCode(entity.getPhoneCode());
 		
 		Country country = entity.getCountry();
 		CountryDTO countryDto = mapToCountryDTO(country);
 		
-//		List<Area> areas = entity.getAreas();
-//		List<AreaDTO> areaDtos = mapToAreasDTOs(areas);
-		
 		dto.setCountry(countryDto);
-//		dto.setAreas(areaDtos);
 
 		return dto;
 	}
@@ -134,6 +123,7 @@ public class EntityMapper {
 		dto.setName(entity.getName());
 		dto.setValue(entity.getValue());
 		dto.setType(entity.getType());
+		dto.setUiStyle(entity.getUiStyle());
 		
 		return dto;
 	}
@@ -145,6 +135,9 @@ public class EntityMapper {
 		LandlinePhoneDTO dto = new LandlinePhoneDTO();
 		dto.setLandlinePhoneId(entity.getLandlinePhoneId());
 		dto.setPhoneNumber(entity.getPhoneNumber());
+
+		BoxDTO boxDTO = mapToBoxDTO(entity.getBox());
+		dto.setBox(boxDTO);
 
 		return dto;
 	}
@@ -173,9 +166,9 @@ public class EntityMapper {
 		dto.setLoginName(entity.getLoginName());
 		dto.setLoginPassword(entity.getLoginPassword());
 		dto.setCreationDate(entity.getCreationDate());
-		dto.setFName(entity.getfName());
-		dto.setMName(entity.getmName());
-		dto.setLName(entity.getlName());
+		dto.setFirstName(entity.getfName());
+		dto.setMiddleName(entity.getmName());
+		dto.setLastName(entity.getlName());
 		dto.setOrganizationType(entity.getOrganizationType());
 		dto.setEmail(entity.getEmail());
 		dto.setImage(entity.getImage());
@@ -184,6 +177,9 @@ public class EntityMapper {
 		dto.setOrganizationName(entity.getOrganizationName());
 		dto.setUserStatus(entity.getUserStatus());
 		dto.setUserType(entity.getUserType());
+		
+		LandlinePhoneDTO landLinePhoneDTO = mapToLandlinePhoneDTO(entity.getLandlinePhone());
+		dto.setLandLinePhone(landLinePhoneDTO);
 
 		return dto;
 	}
@@ -301,9 +297,9 @@ public class EntityMapper {
 		entity.setLoginName(dto.getLoginName());
 		entity.setLoginPassword(dto.getLoginPassword());
 		entity.setCreationDate(dto.getCreationDate());
-		entity.setfName(dto.getFName());
-		entity.setmName(dto.getMName());
-		entity.setlName(dto.getLName());
+		entity.setfName(dto.getFirstName());
+		entity.setmName(dto.getMiddleName());
+		entity.setlName(dto.getLastName());
 		entity.setOrganizationType(dto.getOrganizationType());
 		entity.setEmail(dto.getEmail());
 		entity.setImage(dto.getImage());

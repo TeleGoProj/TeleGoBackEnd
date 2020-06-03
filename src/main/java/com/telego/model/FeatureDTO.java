@@ -14,5 +14,6 @@ public class FeatureDTO extends ModelDTO {
 	private String name;
 	private String value;
 	private String type;
+	private String uiStyle;
 	private boolean markedAsDeleted;
 }

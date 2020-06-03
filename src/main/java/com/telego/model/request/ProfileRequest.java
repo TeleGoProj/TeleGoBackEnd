@@ -15,5 +15,5 @@ import lombok.NoArgsConstructor;
 public class ProfileRequest extends Request{
 	private PhoneUserDTO user;
 	private CountryDTO phoneCountry;
-	private String cityCode;
+	private String cityPhoneCode;
 }

@@ -1,6 +1,5 @@
 package com.telego.controle;
 
-import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,9 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.telego.database.entity.PhoneUser;
 import com.telego.model.CountryDTO;
-import com.telego.model.PhoneUserDTO;
+import com.telego.model.FeatureDTO;
 import com.telego.model.request.ProfileRequest;
 import com.telego.model.response.ProfileResponse;
 import com.telego.service.ProfileService;
@@ -45,5 +43,10 @@ public class ProfileController {
 	@GetMapping("/get-all-countries")
 	public List<CountryDTO> getAllCountries() {
 		return profileService.getAllCountries();	
+	}
+	
+	@GetMapping("/get-all-features")
+	public List<FeatureDTO> getAllFeatures() {
+		return profileService.getAllFeatures();	
 	}
 }

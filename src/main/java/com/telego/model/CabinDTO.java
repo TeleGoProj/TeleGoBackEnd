@@ -17,6 +17,6 @@ public class CabinDTO extends ModelDTO{
 	private boolean markedAsDeleted;
 	
 	private List<BoxDTO> boxes;
-	private AreaDTO areaDto;
+	private AreaDTO area;
 	
 }

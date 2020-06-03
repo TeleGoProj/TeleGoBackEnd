@@ -16,6 +16,7 @@ public class CityDTO extends ModelDTO {
 	private String nameEn;
 	private String nameAr;
 	private String code;
+	private String phoneCode;
 	private boolean markedAsDeleted;
 	
 	private List<AreaDTO>areas;

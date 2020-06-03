@@ -24,6 +24,9 @@ public class Feature {
 
 	@Column(name = "TYPE")
 	private String type;
+	
+	@Column(name = "UI_STYLE")
+	private String uiStyle;
 
 	public Long getFeatureId() {
 		return featureId;
@@ -57,4 +60,11 @@ public class Feature {
 		this.type = type;
 	}
 
+	public String getUiStyle() {
+		return uiStyle;
+	}
+
+	public void setUiStyle(String uiStyle) {
+		this.uiStyle = uiStyle;
+	}
 }
