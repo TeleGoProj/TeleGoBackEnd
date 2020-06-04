@@ -1,5 +1,6 @@
 package com.telego.util;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -15,6 +16,7 @@ import com.telego.database.entity.Feature;
 import com.telego.database.entity.LandlinePhone;
 import com.telego.database.entity.Logistics;
 import com.telego.database.entity.PhoneUser;
+import com.telego.database.entity.UserFeature;
 import com.telego.model.AreaDTO;
 import com.telego.model.BoxDTO;
 import com.telego.model.CabinDTO;
@@ -180,8 +182,23 @@ public class EntityMapper {
 		
 		LandlinePhoneDTO landLinePhoneDTO = mapToLandlinePhoneDTO(entity.getLandlinePhone());
 		dto.setLandLinePhone(landLinePhoneDTO);
+		
+		List<FeatureDTO> userFeatures = getUserFeatures(entity.getUserFeatures());
+		dto.setFeatures(userFeatures);
 
 		return dto;
+	}
+	
+	private List<FeatureDTO> getUserFeatures(List<UserFeature> userFeatures){
+		List<FeatureDTO> featuresDTOs = new ArrayList<FeatureDTO>();
+		if(userFeatures!= null) {
+			for(UserFeature userFeatur : userFeatures) {
+				Feature feature = userFeatur.getFeatureByFeatureId();
+				FeatureDTO featureDTO = mapToFeatureDTO(feature);
+				featuresDTOs.add(featureDTO);
+			}
+		}
+		return featuresDTOs;
 	}
 	
 	////////////////////////////////////////////////////////////////////////////////

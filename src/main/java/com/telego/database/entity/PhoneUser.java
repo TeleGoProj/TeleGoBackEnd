@@ -2,6 +2,7 @@ package com.telego.database.entity;
 
 import java.sql.Time;
 import java.util.Collection;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -80,7 +81,7 @@ public class PhoneUser {
 	private Collection<Logistics> logistics;
 
 	@OneToMany(mappedBy = "phoneUserByUser", cascade = CascadeType.ALL)
-	private Collection<UserFeature> userFeatures;
+	private List<UserFeature> userFeatures;
 
 	public Long getUserId() {
 		return userId;
@@ -226,11 +227,11 @@ public class PhoneUser {
 		this.logistics = logistics;
 	}
 
-	public Collection<UserFeature> getUserFeatures() {
+	public List<UserFeature> getUserFeatures() {
 		return userFeatures;
 	}
 
-	public void setUserFeatures(Collection<UserFeature> userFeatures) {
+	public void setUserFeatures(List<UserFeature> userFeatures) {
 		this.userFeatures = userFeatures;
 	}
 

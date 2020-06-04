@@ -32,4 +32,5 @@ public class PhoneUserDTO extends ModelDTO{
 	private LandlinePhoneDTO landLinePhone;
 	private List<LogisticsDTO> requestedlogistics;
 	private List<LogisticsDTO> deliveredLogistics;
+	private List<FeatureDTO> features;
 }
