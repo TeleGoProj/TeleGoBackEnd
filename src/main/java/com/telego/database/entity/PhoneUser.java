@@ -69,6 +69,10 @@ public class PhoneUser {
 
 	@Column(name = "USER_TYPE")
 	private Long userType;
+	
+	@Lob
+	@Column(name = "ABOUT_ME")
+	private String aboutMe;
 
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "LANDLINE_PHONE_ID", referencedColumnName = "LANDLINE_PHONE_ID")
@@ -235,4 +239,11 @@ public class PhoneUser {
 		this.userFeatures = userFeatures;
 	}
 
+	public String getAboutMe() {
+		return aboutMe;
+	}
+	
+	public void setAboutMe(String aboutMe) {
+		this.aboutMe = aboutMe;
+	}
 }

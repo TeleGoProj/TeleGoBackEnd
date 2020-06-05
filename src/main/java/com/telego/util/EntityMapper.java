@@ -179,6 +179,7 @@ public class EntityMapper {
 		dto.setOrganizationName(entity.getOrganizationName());
 		dto.setUserStatus(entity.getUserStatus());
 		dto.setUserType(entity.getUserType());
+		dto.setAboutMe(entity.getAboutMe());
 		
 		LandlinePhoneDTO landLinePhoneDTO = mapToLandlinePhoneDTO(entity.getLandlinePhone());
 		dto.setLandLinePhone(landLinePhoneDTO);
@@ -325,6 +326,7 @@ public class EntityMapper {
 		entity.setOrganizationName(dto.getOrganizationName());
 		entity.setUserStatus(dto.getUserStatus());
 		entity.setUserType(dto.getUserType());
+		entity.setAboutMe(dto.getAboutMe());
 
 		return entity;
 	}

@@ -28,6 +28,7 @@ public class PhoneUserDTO extends ModelDTO{
 	private String organizationName;
 	private Long userStatus;
 	private Long userType;
+	private String aboutMe;
 	
 	private LandlinePhoneDTO landLinePhone;
 	private List<LogisticsDTO> requestedlogistics;
