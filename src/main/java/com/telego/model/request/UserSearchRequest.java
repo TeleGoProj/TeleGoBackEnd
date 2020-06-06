@@ -1,6 +1,4 @@
-package com.telego.model.response;
-
-import com.telego.model.PhoneUserDTO;
+package com.telego.model.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper=true)
-public class ProfileResponse extends Response {
-
-	private PhoneUserDTO user;
+public class UserSearchRequest extends Request{
+	Long phoneNumber;
+	String featureName;
 }

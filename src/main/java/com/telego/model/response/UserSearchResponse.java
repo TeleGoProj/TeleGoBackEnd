@@ -1,5 +1,7 @@
 package com.telego.model.response;
 
+import java.util.List;
+
 import com.telego.model.PhoneUserDTO;
 
 import lombok.AllArgsConstructor;
@@ -11,7 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper=true)
-public class ProfileResponse extends Response {
+public class UserSearchResponse extends Response{
 
-	private PhoneUserDTO user;
+	List<PhoneUserDTO> matchedUsers;
 }

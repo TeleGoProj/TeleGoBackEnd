@@ -67,22 +67,16 @@ public class ProfileService {
 		userFeatureRepository.deleteByPhoneUserByUser(entityAtDatabase);
 		
 		if(entityToSave.getUserFeatures() != null && !entityToSave.getUserFeatures().isEmpty()) {
-			
-//			if(entityAtDatabase.getUserFeatures() != null)
-//			userFeatureRepository.deleteAll(entityAtDatabase.getUserFeatures());
-//			if(entityToSave != null && !entityToSave.isEmpty()) {
-				
-				List<UserFeature> featuresFromUI = entityToSave.getUserFeatures();
-				if(featuresFromUI != null && ! featuresFromUI.isEmpty()) {
-					for(UserFeature userFeature: featuresFromUI) {
-						Feature feature = featureRepository.getOne(userFeature.getFeatureByFeatureId().getFeatureId());
-						userFeature.setFeatureByFeatureId(feature);
-						userFeature.setPhoneUserByUser(entityAtDatabase);
-						userFeatureRepository.save(userFeature);
-						}
-					}
-				System.out.println("Done");
-//			}
+
+			List<UserFeature> featuresFromUI = entityToSave.getUserFeatures();
+			if(featuresFromUI != null && ! featuresFromUI.isEmpty()) {
+				for(UserFeature userFeature: featuresFromUI) {
+					Feature feature = featureRepository.getOne(userFeature.getFeatureByFeatureId().getFeatureId());
+					userFeature.setFeatureByFeatureId(feature);
+					userFeature.setPhoneUserByUser(entityAtDatabase);
+					userFeatureRepository.save(userFeature);
+				}
+			}
 		}
 		
 		entityToSave = phoneUserRepository.save(entityToSave);
