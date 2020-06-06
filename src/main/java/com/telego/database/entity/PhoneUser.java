@@ -74,9 +74,8 @@ public class PhoneUser {
 	@Column(name = "ABOUT_ME")
 	private String aboutMe;
 
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "LANDLINE_PHONE_ID", referencedColumnName = "LANDLINE_PHONE_ID")
-	private LandlinePhone landlinePhone;
+	@OneToMany(mappedBy = "phoneUser", cascade = CascadeType.ALL)
+	private List<LandlinePhone> landlinePhones;
 
 	@OneToMany(mappedBy = "phoneUserByRequester", cascade = CascadeType.ALL)
 	private Collection<Logistics> logisticsByUserId;
@@ -207,12 +206,12 @@ public class PhoneUser {
 		this.userType = userType;
 	}
 
-	public LandlinePhone getLandlinePhone() {
-		return landlinePhone;
+	public List<LandlinePhone> getLandlinePhones() {
+		return landlinePhones;
 	}
 
-	public void setLandlinePhone(LandlinePhone landlinePhone) {
-		this.landlinePhone = landlinePhone;
+	public void setLandlinePhone(List<LandlinePhone> landlinePhones) {
+		this.landlinePhones = landlinePhones;
 	}
 
 	public Collection<Logistics> getLogisticsByUserId() {

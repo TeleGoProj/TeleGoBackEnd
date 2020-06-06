@@ -1,6 +1,7 @@
 package com.telego.util;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -126,6 +127,7 @@ public class EntityMapper {
 		dto.setValue(entity.getValue());
 		dto.setType(entity.getType());
 		dto.setUiStyle(entity.getUiStyle());
+		dto.setFeatureId(entity.getFeatureId());
 		
 		return dto;
 	}
@@ -181,7 +183,10 @@ public class EntityMapper {
 		dto.setUserType(entity.getUserType());
 		dto.setAboutMe(entity.getAboutMe());
 		
-		LandlinePhoneDTO landLinePhoneDTO = mapToLandlinePhoneDTO(entity.getLandlinePhone());
+		LandlinePhoneDTO landLinePhoneDTO = null;
+		
+		if(entity.getLandlinePhones() != null && !entity.getLandlinePhones().isEmpty())
+			landLinePhoneDTO = mapToLandlinePhoneDTO(entity.getLandlinePhones().get(0));
 		dto.setLandLinePhone(landLinePhoneDTO);
 		
 		List<FeatureDTO> userFeatures = getUserFeatures(entity.getUserFeatures());
@@ -276,6 +281,7 @@ public class EntityMapper {
 		entity.setName(dto.getName());
 		entity.setValue(dto.getValue());
 		entity.setType(dto.getType());
+		entity.setFeatureId(dto.getFeatureId());
 		
 		return entity;
 	}
@@ -287,6 +293,11 @@ public class EntityMapper {
 		LandlinePhone entity = new LandlinePhone();
 		entity.setLandlinePhoneId(dto.getLandlinePhoneId());
 		entity.setPhoneNumber(dto.getPhoneNumber());
+		
+		BoxDTO boxDTO = dto.getBox();
+		Box boxEntity = mapToBoxEntity(boxDTO);
+		
+		entity.setBox(boxEntity);
 
 		return entity;
 	}
@@ -327,7 +338,32 @@ public class EntityMapper {
 		entity.setUserStatus(dto.getUserStatus());
 		entity.setUserType(dto.getUserType());
 		entity.setAboutMe(dto.getAboutMe());
+		
+		LandlinePhoneDTO phoneDTO = dto.getLandLinePhone();
+		LandlinePhone phoneEntity = mapToLandlinePhoneEntity(phoneDTO);
+		phoneEntity.setPhoneUser(entity);
+		
+		if(phoneEntity != null)
+			entity.setLandlinePhone(Arrays.asList(phoneEntity));
+		
+		List<UserFeature> userFeaturesEntities = null;
+		List<FeatureDTO> userFeaturesDTOs = dto.getFeatures();
+		
+		if(userFeaturesDTOs != null) {
+			userFeaturesEntities = new ArrayList<UserFeature>();
+			
+			for(FeatureDTO featureDTO : userFeaturesDTOs) {
+				Feature featureEntity = mapToFeatureEntity(featureDTO);
+				UserFeature userFeature = new UserFeature();
+				userFeature.setFeatureByFeatureId(featureEntity);
+				userFeature.setPhoneUserByUser(entity);
+				
+				userFeaturesEntities.add(userFeature);
+			}
+		}
 
+		entity.setUserFeatures(userFeaturesEntities);
+		
 		return entity;
 	}
 	
