@@ -14,4 +14,6 @@ import lombok.NoArgsConstructor;
 public class ProfileResponse extends Response {
 
 	private PhoneUserDTO user;
+	
+	
 }

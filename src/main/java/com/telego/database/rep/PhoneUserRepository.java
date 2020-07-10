@@ -4,7 +4,6 @@ package com.telego.database.rep;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.telego.database.entity.PhoneUser;
@@ -22,4 +21,8 @@ public interface PhoneUserRepository extends JpaRepository<PhoneUser, Long> {
 	public List<PhoneUser> findByLandlinePhones_PhoneNumber(Long phoneNumber);
 	
 	public List<PhoneUser> findByUserFeatures_FeatureByFeatureId_Name(String featureName);
+	
+	public PhoneUser getByfNameAndLoginPassword(String  username , String password);
+
+	
 }

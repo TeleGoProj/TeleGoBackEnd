@@ -51,7 +51,17 @@ public class ProfileService {
 		ProfileResponse profileResponse = new ProfileResponse(dto);
 		return profileResponse;
 	}
+	
+	
+	public Long authenticate(String fname , String password) {
+		
+		PhoneUser user= phoneUserRepository.getByfNameAndLoginPassword(fname, password);
+		Long userid = user.getUserId();
+		return userid;
+	}
+	
 
+	
 	@Transactional
 	public ProfileResponse saveOrUpdatePhoneUser(ProfileRequest profileRequest) {
 		PhoneUserDTO dto = profileRequest.getUser();
