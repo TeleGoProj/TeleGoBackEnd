@@ -56,17 +56,17 @@ public class ProfileService {
 	
 	public  ProfileResponse authenticate( ProfileRequest request) {
 		
-         PhoneUserDTO dto = request.getUser();
+		ProfileResponse profileResponse = null;
+        PhoneUserDTO dto = request.getUser();
 		
-		PhoneUser entityToSave = mapper.mapToPhoneUserEntity(dto);
-		PhoneUser entityAtDatabase = phoneUserRepository.getByLoginNameAndLoginPassword(entityToSave.getLoginName() , entityToSave.getLoginPassword() );
+		PhoneUser entityAtDatabase = phoneUserRepository.getByLoginNameAndLoginPassword(dto.getLoginName() , dto.getLoginPassword() );
 		
 	
-		if(entityToSave.getLoginName() == entityAtDatabase.getLoginName() && entityToSave.getLoginPassword()==entityAtDatabase.getLoginPassword());
-		
+		if(dto.getLoginName().equals(entityAtDatabase.getLoginName()) && dto.getLoginPassword().equals(entityAtDatabase.getLoginPassword()))
+		{
 			PhoneUserDTO dto2 = mapper.mapToPhoneUserDTO(entityAtDatabase);
-			 ProfileResponse profileResponse = new ProfileResponse(dto2);
-		
+			 profileResponse = new ProfileResponse(dto2);
+		}
 		
 		return profileResponse;
 	}
