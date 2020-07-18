@@ -7,6 +7,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.telego.database.entity.Feature;
@@ -53,11 +54,21 @@ public class ProfileService {
 	}
 	
 	
-	public Long authenticate(String fname , String password) {
+	public  ProfileResponse authenticate( ProfileRequest request) {
 		
-		PhoneUser user= phoneUserRepository.getByfNameAndLoginPassword(fname, password);
-		Long userid = user.getUserId();
-		return userid;
+         PhoneUserDTO dto = request.getUser();
+		
+		PhoneUser entityToSave = mapper.mapToPhoneUserEntity(dto);
+		PhoneUser entityAtDatabase = phoneUserRepository.getByLoginNameAndLoginPassword(entityToSave.getLoginName() , entityToSave.getLoginPassword() );
+		
+	
+		if(entityToSave.getLoginName() == entityAtDatabase.getLoginName() && entityToSave.getLoginPassword()==entityAtDatabase.getLoginPassword());
+		
+			PhoneUserDTO dto2 = mapper.mapToPhoneUserDTO(entityAtDatabase);
+			 ProfileResponse profileResponse = new ProfileResponse(dto2);
+		
+		
+		return profileResponse;
 	}
 	
 

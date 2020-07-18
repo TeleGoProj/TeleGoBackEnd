@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.telego.database.entity.PhoneUser;
+import com.telego.model.request.ProfileRequest;
 
 @Repository
 public interface PhoneUserRepository extends JpaRepository<PhoneUser, Long> {
@@ -22,7 +23,7 @@ public interface PhoneUserRepository extends JpaRepository<PhoneUser, Long> {
 	
 	public List<PhoneUser> findByUserFeatures_FeatureByFeatureId_Name(String featureName);
 	
-	public PhoneUser getByfNameAndLoginPassword(String  username , String password);
+	public PhoneUser getByLoginNameAndLoginPassword(String name ,String password );
 
 	
 }
