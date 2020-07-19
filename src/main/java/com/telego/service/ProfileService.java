@@ -54,22 +54,22 @@ public class ProfileService {
 	}
 	
 	
-	public  ProfileResponse authenticate( ProfileRequest request) {
+public  ProfileResponse authenticate( ProfileRequest request) {
 		
+		ProfileResponse profileResponse=null;
          PhoneUserDTO dto = request.getUser();
+		List<PhoneUser> entityAtDatabase = phoneUserRepository.findByLoginNameAndLoginPassword(dto.getLoginName(), dto.getLoginPassword());
 		
-		PhoneUser entityToSave = mapper.mapToPhoneUserEntity(dto);
-		PhoneUser entityAtDatabase = phoneUserRepository.getByLoginNameAndLoginPassword(entityToSave.getLoginName() , entityToSave.getLoginPassword() );
-		
-	
-		if(entityToSave.getLoginName() == entityAtDatabase.getLoginName() && entityToSave.getLoginPassword()==entityAtDatabase.getLoginPassword());
-		
-			PhoneUserDTO dto2 = mapper.mapToPhoneUserDTO(entityAtDatabase);
-			 ProfileResponse profileResponse = new ProfileResponse(dto2);
-		
+		if(dto.getLoginName().equals(entityAtDatabase.get(0).getLoginName()) && dto.getLoginPassword().equals(entityAtDatabase.get(0).getLoginPassword()))
+		{
+			
+			List<PhoneUserDTO> dto2 = mapper.mapToPhoneUsersDTOs(entityAtDatabase);
+			profileResponse = new ProfileResponse(dto2.get(0));
+		}
 		
 		return profileResponse;
 	}
+	
 	
 
 	

@@ -23,7 +23,7 @@ public interface PhoneUserRepository extends JpaRepository<PhoneUser, Long> {
 	
 	public List<PhoneUser> findByUserFeatures_FeatureByFeatureId_Name(String featureName);
 	
-	public PhoneUser getByLoginNameAndLoginPassword(String name ,String password );
+	public List<PhoneUser> findByLoginNameAndLoginPassword(String name ,String password );
 
 	
 }
