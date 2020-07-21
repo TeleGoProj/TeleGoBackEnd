@@ -1,5 +1,4 @@
 package com.telego.controle;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,19 +11,20 @@ import com.telego.model.request.ProfileRequest;
 import com.telego.model.response.ProfileResponse;
 import com.telego.service.ProfileService;
 
-
 @RestController
-@RequestMapping("/api/authentication")
-public class AuthenticationController {
+@RequestMapping("/api/registeration")
+public class registerationController {
 	
-	@Autowired
-	private ProfileService profileService;
 
-	
-	@PostMapping("/login")
-	public ProfileResponse authenticate(@RequestBody ProfileRequest request) {
-		return profileService.authenticate(request);
+
+@Autowired
+private ProfileService profileService;
+
+
+	@PostMapping("/register")
+	public ProfileResponse register(@RequestBody ProfileRequest request) {
+		return profileService.signUp(request);
 	}
 	
-	}
 
+}

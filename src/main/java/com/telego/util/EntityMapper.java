@@ -340,11 +340,14 @@ public class EntityMapper {
 		entity.setAboutMe(dto.getAboutMe());
 		
 		LandlinePhoneDTO phoneDTO = dto.getLandLinePhone();
+		if(phoneDTO != null)
+		{
 		LandlinePhone phoneEntity = mapToLandlinePhoneEntity(phoneDTO);
 		phoneEntity.setPhoneUser(entity);
-		
 		if(phoneEntity != null)
 			entity.setLandlinePhone(Arrays.asList(phoneEntity));
+		}
+		
 		
 		List<UserFeature> userFeaturesEntities = null;
 		List<FeatureDTO> userFeaturesDTOs = dto.getFeatures();

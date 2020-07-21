@@ -73,6 +73,20 @@ public  ProfileResponse authenticate( ProfileRequest request) {
 	}
 	
 	
+@Transactional
+public  ProfileResponse signUp( ProfileRequest request) {
+	
+	ProfileResponse profileResponse = null;
+    PhoneUserDTO dto = request.getUser();
+    
+	PhoneUser entityToSave = mapper.mapToPhoneUserEntity(dto);
+	entityToSave = phoneUserRepository.save(entityToSave);
+	dto = mapper.mapToPhoneUserDTO(entityToSave);
+	
+	profileResponse = new ProfileResponse(dto);
+	return profileResponse;
+}
+
 
 	
 	@Transactional
