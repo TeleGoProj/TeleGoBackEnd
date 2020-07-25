@@ -10,16 +10,31 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.telego.database.entity.Area;
+import com.telego.database.entity.Box;
+import com.telego.database.entity.Cabin;
+import com.telego.database.entity.City;
+import com.telego.database.entity.Country;
 import com.telego.database.entity.Feature;
 import com.telego.database.entity.LandlinePhone;
 import com.telego.database.entity.PhoneUser;
 import com.telego.database.entity.UserFeature;
+import com.telego.database.rep.AreaRepository;
+import com.telego.database.rep.BoxRepository;
+import com.telego.database.rep.CabinRepository;
+import com.telego.database.rep.CityRepository;
+import com.telego.database.rep.CountryRepository;
 import com.telego.database.rep.FeatureRepository;
 import com.telego.database.rep.LandlinePhoneRepository;
 import com.telego.database.rep.PhoneUserRepository;
 import com.telego.database.rep.UserFeatureRepository;
+import com.telego.model.AreaDTO;
+import com.telego.model.BoxDTO;
+import com.telego.model.CabinDTO;
+import com.telego.model.CityDTO;
 import com.telego.model.CountryDTO;
 import com.telego.model.FeatureDTO;
+import com.telego.model.LandlinePhoneDTO;
 import com.telego.model.PhoneUserDTO;
 import com.telego.model.request.ProfileRequest;
 import com.telego.model.response.ProfileResponse;
@@ -42,6 +57,25 @@ public class ProfileService {
 	
 	@Autowired
 	private FeatureRepository featureRepository;
+	
+	@Autowired
+	private CountryRepository countryRepository;
+
+	@Autowired
+	private CityRepository cityRepository;
+
+	
+	@Autowired
+	private AreaRepository areaRepository;
+
+	@Autowired
+	private CabinRepository cabinRepository;
+	
+	@Autowired
+	private BoxRepository boxRepository;
+
+
+	
 	
 	@Autowired
 	private EntityMapper mapper;
@@ -76,12 +110,16 @@ public  ProfileResponse authenticate( ProfileRequest request) {
 @Transactional
 public  ProfileResponse signUp( ProfileRequest request) {
 	
+
 	ProfileResponse profileResponse = null;
+	
     PhoneUserDTO dto = request.getUser();
     
 	PhoneUser entityToSave = mapper.mapToPhoneUserEntity(dto);
 	entityToSave = phoneUserRepository.save(entityToSave);
+
 	dto = mapper.mapToPhoneUserDTO(entityToSave);
+	
 	
 	profileResponse = new ProfileResponse(dto);
 	return profileResponse;
