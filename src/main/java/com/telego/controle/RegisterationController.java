@@ -13,7 +13,7 @@ import com.telego.service.ProfileService;
 
 @RestController
 @RequestMapping("/api/registeration")
-public class registerationController {
+public class RegisterationController {
 	
 
 
