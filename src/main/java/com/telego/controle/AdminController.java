@@ -29,6 +29,12 @@ public class AdminController {
 		return adminService.getCitiesByCountryId(id);	
 	}
 	
+	
+	@GetMapping("/get-areas-by-city-id/{id}")
+	public AdminLookupsResponse getAreasByCityId(@PathVariable("id") Long id) {
+		return adminService.getAreasByCityId(id);	
+	}
+	
 		
 	@PutMapping("/process-countries")
 	public AdminLookupsResponse processCountries(@RequestBody AdminLookupsRequest request) {

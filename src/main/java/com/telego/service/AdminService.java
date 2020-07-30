@@ -63,6 +63,21 @@ public class AdminService {
 
 	
 	
+	public AdminLookupsResponse getAreasByCityId(Long id) {
+		AdminLookupsResponse response = new AdminLookupsResponse();
+		
+		List<AreaDTO> areasResult = null;
+		
+		if(id == null)
+			areasResult = lookupService.getAllAreas();
+		else
+			areasResult = lookupService.getAreasByCityId(id);
+		
+		response.setAreas(areasResult);
+	      return response ;
+	}
+
+	
 	public AdminLookupsResponse processCountries(AdminLookupsRequest request) {
 		AdminLookupsResponse response = new AdminLookupsResponse();
 		

@@ -93,13 +93,13 @@ public  ProfileResponse authenticate( ProfileRequest request) {
 		ProfileResponse profileResponse = null;
         PhoneUserDTO dto = request.getUser();
 		
-		PhoneUser entityAtDatabase = phoneUserRepository.getByLoginNameAndLoginPassword(dto.getLoginName() , dto.getLoginPassword() );
+		List<PhoneUser> entityAtDatabase = phoneUserRepository.getByLoginNameAndLoginPassword(dto.getLoginName() , dto.getLoginPassword() );
 		
 	
-		if(dto.getLoginName().equals(entityAtDatabase.getLoginName()) && dto.getLoginPassword().equals(entityAtDatabase.getLoginPassword()))
+		if(dto.getLoginName().equals(entityAtDatabase.get(0).getLoginName()) && dto.getLoginPassword().equals(entityAtDatabase.get(0).getLoginPassword()))
 		{
-			PhoneUserDTO dto2 = mapper.mapToPhoneUserDTO(entityAtDatabase);
-			 profileResponse = new ProfileResponse(dto2);
+			List<PhoneUserDTO> dto2 = mapper.mapToPhoneUsersDTOs(entityAtDatabase);
+			 profileResponse = new ProfileResponse(dto2.get(0));
 
 		}
 		

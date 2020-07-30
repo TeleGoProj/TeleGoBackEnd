@@ -79,6 +79,24 @@ public class LookupService {
 	
 	
 
+	public  List<AreaDTO> getAreasByCityId(Long id) {
+		List<Area> areasDatabase = null;
+
+		if(id == null || id == 0) {
+			areasDatabase = areaRepository.findAll();
+		}
+		else {
+			areasDatabase = areaRepository.getAreasByCityId(id);
+		}
+
+		List<AreaDTO> areasDTOs = mapper.mapToAreasDTOs(areasDatabase);
+		return areasDTOs;
+	}
+	
+
+	
+	
+	
 	public List<CountryDTO> saveCountries(List<CountryDTO> countries) {
 		if (countries == null)
 			return null;
